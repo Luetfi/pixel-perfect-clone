@@ -46,15 +46,7 @@ export const FinalCTASection: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex gap-4 text-xl text-white font-bold text-center uppercase mt-8">
-                <CustomButton variant="primary">
-                  Kostenloses Erstgespräch
-                </CustomButton>
-              </div>
             </div>
-            <p className="text-[rgba(51,51,51,1)] text-base font-semibold mt-4 max-md:max-w-full">
-              Unverbindlich. Erstgespräch dient der Bedarfsklärung – kein Risiko.
-            </p>
           </div>
         </div>
         <div className="bg-white flex min-w-60 min-h-[530px] flex-col items-center text-2xl text-black text-center justify-center grow shrink w-[520px] pl-[42px] pr-[43px] py-[105px] border-black border-solid border-2 max-md:max-w-full max-md:px-5 max-md:py-[100px]">
