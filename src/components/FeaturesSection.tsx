@@ -10,7 +10,7 @@ interface FeatureCardProps {
 const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, className = "" }) => {
   return (
     <div className={`bg-white flex min-w-60 items-center gap-2.5 justify-center flex-1 shrink basis-[0%] px-[23px] border-black border-solid border-2 max-md:px-5 ${className}`}>
-      <div className="self-stretch flex min-w-60 w-[322px] flex-col justify-center items-center text-center my-auto">
+      <div className="self-stretch flex min-w-60 w-[322px] flex-col justify-center my-auto">
         <div className="font-bold leading-[1.3]">
           {title}
         </div>
