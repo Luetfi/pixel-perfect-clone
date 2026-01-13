@@ -14,12 +14,12 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
   children,
   ...props
 }) => {
-  const baseClasses = 'font-bold text-center transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const baseClasses = 'font-bold text-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
   
   const variantClasses = {
-    primary: 'bg-[#8A31FF] text-white hover:bg-[#7A2BE5] focus:ring-[#8A31FF]',
-    secondary: 'bg-white text-black border-2 border-black hover:bg-gray-50 focus:ring-black',
-    outline: 'bg-transparent text-black border-2 border-black hover:bg-black hover:text-white focus:ring-black'
+    primary: 'bg-brand-cyan text-brand-navy hover:bg-brand-cyan/90 focus:ring-brand-cyan shadow-lg hover:shadow-xl',
+    secondary: 'bg-brand-navy text-white hover:bg-brand-dark-blue focus:ring-brand-navy',
+    outline: 'bg-transparent text-brand-navy border-2 border-brand-navy hover:bg-brand-navy hover:text-white focus:ring-brand-navy'
   };
 
   const sizeClasses = {

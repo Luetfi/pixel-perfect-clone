@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        quicksand: ['Quicksand', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -46,6 +49,15 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        // Brand colors
+        brand: {
+          navy: "hsl(var(--brand-navy))",
+          "dark-blue": "hsl(var(--brand-dark-blue))",
+          blue: "hsl(var(--brand-blue))",
+          cyan: "hsl(var(--brand-cyan))",
+          red: "hsl(var(--brand-red))",
+          gray: "hsl(var(--brand-gray))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
