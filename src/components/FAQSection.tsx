@@ -43,27 +43,27 @@ export const FAQSection: React.FC = () => {
   const faqs = [
     {
       question: "Wie viel Zeit muss mein Team wirklich einplanen?",
-      answer: "Das Programm ist so konzipiert, dass es sich nahtlos in den Arbeitsalltag integriert. Pro Woche sind etwa 2-3 Stunden für Webinare und praktische Übungen eingeplant."
+      answer: "Rund 60 Minuten pro Woche für das Webinar mit optional 30 Minuten Diskussionsrunde im Anschluss. Plus ca. 30 Minuten Praxisaufgabe. Maximal also 2 Stunden pro Woche – das Programm ist bewusst ressourcenschonend aufgebaut, damit der Betrieb weiterläuft."
     },
     {
-      question: "Question #2",
-      answer: ""
+      question: "Brauchen wir technisches Vorwissen oder spezielle Voraussetzungen?",
+      answer: "Nein. Es sind keine technischen Vorkenntnisse erforderlich. Nur eine grundlegende digitale Arbeitsweise (z. B. digitales Vorgangsmanagement) wird empfohlen."
     },
     {
-      question: "Question #3",
-      answer: ""
+      question: "Was passiert, wenn im Team Unsicherheiten oder Widerstände gegenüber KI bestehen?",
+      answer: 'Ihr Trainer holt alle ab, baut Blockaden ab und geht auf individuelle Bedürfnisse ein. Auch "Urgesteine" kommen sicher mit – durch klare, praxisnahe Schritt-für-Schritt-Anleitung.'
     },
     {
-      question: "Question #4",
-      answer: ""
+      question: "Wie sicher sind unsere Daten? Ist das DSGVO-konform?",
+      answer: "Wir arbeiten mit Langdock, einer vollständig DSGVO-konformen Plattform, die von führenden deutschen Unternehmen bereits sicher genutzt wird."
     },
     {
-      question: "Question #5",
-      answer: ""
+      question: "Welche konkreten Ergebnisse können wir nach den 4 Wochen erwarten?",
+      answer: "Ihr Team nutzt KI sicher, hat erste eigene Assistenten gebaut und erreicht spürbare Entlastung. Kunden berichten von rund 4 Stunden Zeitersparnis pro Woche pro Person."
     },
     {
-      question: "Question #6",
-      answer: ""
+      question: "Wie läuft der Start ab, wenn wir uns für das Programm entscheiden?",
+      answer: "Sie vereinbaren ein Erstgespräch, erhalten anschließend das Onboarding mit Zugängen und starten danach direkt ins Programm."
     }
   ];
 
