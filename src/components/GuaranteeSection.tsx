@@ -7,7 +7,8 @@ export const GuaranteeSection: React.FC = () => {
         <div className="flex flex-col items-center max-md:max-w-full">
           <div className="flex flex-col items-center max-md:max-w-full">
             <p className="max-md:max-w-full">
-              100% Zufriedenheitsgarantie: Erstattung, falls Sie nach der ersten Sitzung aufhören.
+              100% Zufriedenheitsgarantie:<br />
+              Erstattung, falls Sie nach der ersten Sitzung nicht 100%ig zufrieden sind.
             </p>
           </div>
         </div>
