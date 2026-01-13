@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mitarbyte - Mitarbeit von morgen</title>
+  <meta name="description" content="mitarbyte - Ihr Partner für zukunftsfähige Mitarbeitergewinnung und Personalentwicklung">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ========================================
+       BRAND COLORS & DESIGN TOKENS
+       ======================================== */
+    :root {
+      --brand-navy: #193158;
+      --brand-cyan: #5AD8D3;
+      --brand-dark-blue: #0f1f3a;
+      --text-primary: #333333;
+      --text-dark: #000000;
+      --text-muted: #241B41;
+      --bg-light: #EBEBEB;
+      --bg-white: #FFFFFF;
+      --border-color: #000000;
+    }
+
+    /* ========================================
+       RESET & BASE STYLES
+       ======================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text-primary);
+      background-color: var(--bg-white);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ========================================
+       BUTTON STYLES
+       ======================================== */
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--brand-cyan);
+      color: var(--brand-navy);
+      font-weight: 700;
+      font-size: 20px;
+      text-align: center;
+      text-transform: uppercase;
+      padding: 24px 56px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(90, 216, 211, 0.3);
+    }
+
+    .btn-primary:hover {
+      background-color: #4bc5c0;
+      box-shadow: 0 6px 20px rgba(90, 216, 211, 0.4);
+    }
+
+    .btn-small {
+      padding: 12px 24px;
+      font-size: 16px;
+    }
+
+    /* ========================================
+       SECTION DEFAULTS
+       ======================================== */
+    .section {
+      padding: 80px 20px;
+    }
+
+    .section-center {
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .container-narrow {
+      max-width: 836px;
+      margin: 0 auto;
+    }
+
+    .container-faq {
+      max-width: 777px;
+      margin: 0 auto;
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 56px;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 44px;
+      line-height: 1.2;
+    }
+
+    h3 {
+      font-size: 40px;
+      line-height: 1.2;
+    }
+
+    /* ========================================
+       NAVIGATION
+       ======================================== */
+    .navigation {
+      background-color: var(--bg-white);
+      padding: 16px 40px;
+    }
+
+    .nav-container {
+      max-width: 1303px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo img {
+      height: 48px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-phone {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .nav-phone svg {
+      width: 20px;
+      height: 20px;
+      color: var(--brand-cyan);
+    }
+
+    /* ========================================
+       HERO SECTION
+       ======================================== */
+    .hero {
+      padding: 16px 68px 64px;
+    }
+
+    .hero-container {
+      max-width: 1303px;
+      margin: 0 auto;
+      display: flex;
+      align-items: stretch;
+      gap: 80px;
+      flex-wrap: wrap;
+    }
+
+    .hero-content {
+      flex: 1;
+      min-width: 300px;
+      max-width: 585px;
+    }
+
+    .hero-pretitle {
+      font-size: 20px;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      margin-bottom: 16px;
+    }
+
+    .hero-description {
+      font-size: 20px;
+      line-height: 1.5;
+      color: var(--text-primary);
+      margin-bottom: 32px;
+    }
+
+    .hero-note {
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      margin-top: 16px;
+    }
+
+    .hero-image {
+      flex: 1;
+      min-width: 300px;
+      min-height: 530px;
+      background: var(--bg-white);
+      border: 2px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    /* ========================================
+       GUARANTEE SECTION
+       ======================================== */
+    .guarantee {
+      padding: 48px 20px;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      text-align: center;
+    }
+
+    .guarantee p {
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1.2;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* ========================================
+       TESTIMONIALS SECTION
+       ======================================== */
+    .testimonials {
+      background-color: var(--bg-light);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .testimonials h2 {
+      max-width: 748px;
+      margin: 0 auto 48px;
+    }
+
+    .testimonials-grid {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .testimonial-card {
+      flex: 1;
+      min-width: 280px;
+      min-height: 311px;
+      background: var(--bg-white);
+      border: 2px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 55px 12px;
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* ========================================
+       PROBLEM SECTION
+       ======================================== */
+    .problem {
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .problem h2 {
+      margin-bottom: 16px;
+    }
+
+    .problem p {
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--text-primary);
+      margin-bottom: 32px;
+    }
+
+    /* ========================================
+       BENEFITS SECTION
+       ======================================== */
+    .benefits-item {
+      padding: 40px 120px;
+      display: flex;
+      align-items: center;
+      gap: 92px;
+      flex-wrap: wrap;
+    }
+
+    .benefits-item.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .benefits-content {
+      flex: 1;
+      min-width: 300px;
+      max-width: 534px;
+    }
+
+    .benefits-label {
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .benefits-title {
+      font-size: 40px;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .benefits-description {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #363328;
+    }
+
+    .benefits-image {
+      flex: 1;
+      min-width: 300px;
+      min-height: 534px;
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 90px;
+    }
+
+    /* ========================================
+       SOCIAL PROOF SECTION
+       ======================================== */
+    .social-proof {
+      background-color: var(--bg-light);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .social-proof h2 {
+      max-width: 748px;
+      margin: 0 auto 48px;
+    }
+
+    .social-proof-box {
+      background: var(--bg-white);
+      border: 2px solid var(--border-color);
+      padding: 140px 157px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 48px;
+    }
+
+    /* ========================================
+       FEATURES SECTION
+       ======================================== */
+    .features {
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .features h2 {
+      max-width: 748px;
+      margin: 0 auto 48px;
+    }
+
+    .features-grid {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .feature-card {
+      flex: 1;
+      min-width: 280px;
+      min-height: 320px;
+      background: var(--bg-white);
+      border: 2px solid var(--border-color);
+      padding: 32px 23px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .feature-card h4 {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      font-size: 24px;
+      line-height: 1.3;
+    }
+
+    /* ========================================
+       PROCESS SECTION
+       ======================================== */
+    .process {
+      background-color: rgba(235, 235, 235, 0.4);
+    }
+
+    .process h2 {
+      margin-bottom: 48px;
+    }
+
+    .process-grid {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+
+    .process-step {
+      flex: 1;
+      min-width: 280px;
+      max-width: 380px;
+      background: var(--bg-white);
+      border: 2px solid var(--text-dark);
+      border-radius: 4px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .process-step-number {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .process-step-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .process-step p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ========================================
+       DISCOUNT SECTION
+       ======================================== */
+    .discount {
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .discount h2 {
+      margin-bottom: 48px;
+    }
+
+    .discount-box {
+      background: var(--bg-white);
+      border: 2px solid var(--border-color);
+      padding: 140px 157px;
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .discount-box h4 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .discount-box p {
+      font-size: 24px;
+    }
+
+    /* ========================================
+       TEAM SECTION
+       ======================================== */
+    .team {
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .team h2 {
+      margin-bottom: 48px;
+    }
+
+    .team-member {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .team-member.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .team-image-box {
+      flex: 1;
+      min-width: 280px;
+      min-height: 354px;
+      background: var(--bg-white);
+      border: 2px solid var(--border-color);
+      padding: 126px 127px;
+      text-align: center;
+    }
+
+    .team-image-box .name {
+      font-size: 24px;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    .team-image-box .role {
+      font-size: 24px;
+      line-height: 1.3;
+    }
+
+    .team-description-box {
+      flex: 1;
+      min-width: 280px;
+      background: var(--bg-white);
+      border: 2px solid var(--border-color);
+      padding: 87px 31px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .team-description-box p {
+      font-size: 24px;
+      line-height: 1.3;
+      max-width: 514px;
+    }
+
+    /* ========================================
+       RISK FREE SECTION
+       ======================================== */
+    .risk-free {
+      padding: 48px 20px;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      text-align: center;
+    }
+
+    .risk-free h3 {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .risk-free p {
+      font-size: 20px;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* ========================================
+       FAQ SECTION
+       ======================================== */
+    .faq h2 {
+      font-size: 40px;
+      margin-bottom: 48px;
+      color: var(--text-muted);
+    }
+
+    .faq-item {
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 24px;
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      padding: 0;
+      font-family: inherit;
+    }
+
+    .faq-question span {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .faq-question svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .faq-answer {
+      display: none;
+      margin-top: 16px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    .faq-item.open .faq-question svg {
+      transform: rotate(180deg);
+    }
+
+    /* ========================================
+       FINAL CTA SECTION
+       ======================================== */
+    .final-cta {
+      background-color: var(--bg-light);
+      padding: 80px 68px;
+    }
+
+    .final-cta-container {
+      max-width: 1303px;
+      margin: 0 auto;
+      display: flex;
+      align-items: stretch;
+      gap: 80px;
+      flex-wrap: wrap;
+    }
+
+    .final-cta-content {
+      flex: 1;
+      min-width: 300px;
+      max-width: 585px;
+    }
+
+    .final-cta-pretitle {
+      font-size: 20px;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .final-cta h2 {
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .final-cta-description {
+      font-size: 20px;
+      line-height: 1.5;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .final-cta-list {
+      list-style: none;
+    }
+
+    .final-cta-list li {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 20px;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .final-cta-list .checkmark {
+      width: 24px;
+      height: 24px;
+      background-color: #cccccc;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .final-cta-list .checkmark svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .final-cta-image {
+      flex: 1;
+      min-width: 300px;
+      min-height: 530px;
+      background: var(--bg-white);
+      border: 2px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 105px 43px;
+      text-align: center;
+    }
+
+    .final-cta-image h4 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .final-cta-image p {
+      font-size: 24px;
+      line-height: 1.3;
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+    .footer {
+      background-color: var(--brand-navy);
+      color: #ffffff;
+      padding: 64px 48px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-logo img {
+      height: 48px;
+      filter: brightness(0) invert(1);
+      margin-bottom: 16px;
+    }
+
+    .footer-logo p {
+      font-size: 14px;
+      color: #d1d5db;
+      line-height: 1.6;
+    }
+
+    .footer h4 {
+      color: var(--brand-cyan);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .footer-contact a,
+    .footer-contact div {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #d1d5db;
+      margin-bottom: 12px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-contact a:hover {
+      color: var(--brand-cyan);
+    }
+
+    .footer-contact svg {
+      width: 16px;
+      height: 16px;
+      color: var(--brand-cyan);
+    }
+
+    .footer-links a {
+      display: block;
+      color: #d1d5db;
+      margin-bottom: 12px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--brand-cyan);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #4b5563;
+      padding-top: 32px;
+      text-align: center;
+      color: #9ca3af;
+      font-size: 14px;
+    }
+
+    /* ========================================
+       RESPONSIVE STYLES
+       ======================================== */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 40px;
+      }
+
+      h2 {
+        font-size: 32px;
+      }
+
+      h3 {
+        font-size: 28px;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+
+      .hero {
+        padding: 16px 20px 40px;
+      }
+
+      .hero-container,
+      .final-cta-container {
+        gap: 40px;
+      }
+
+      .benefits-item {
+        padding: 40px 20px;
+        gap: 40px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-container {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .testimonials-grid,
+      .features-grid,
+      .process-grid {
+        flex-direction: column;
+      }
+
+      .team-member {
+        flex-direction: column !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================
+       NAVIGATION
+       ======================================== -->
+  <header class="navigation">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <!-- ERSETZE MIT DEINEM LOGO -->
+        <img src="YOUR_LOGO_URL_HERE" alt="mitarbyte - Mitarbeit von morgen">
+      </div>
+      <div class="nav-right">
+        <a href="tel:+4915122878503" class="nav-phone">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          +49 1512 2878503
+        </a>
+        <a href="#" class="btn-primary btn-small">Kostenloses Erstgespräch</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========================================
+         HERO SECTION
+         ======================================== -->
+    <section class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <p class="hero-pretitle">Mit 12+ Verwaltungen erfolgreich durchgeführt</p>
+          <h1>In 4 Wochen von Systemchaos zu klarer Struktur – mit KI, die wirklich entlastet</h1>
+          <p class="hero-description">Wir befähigen Ihre Mitarbeitenden, KI sicher und souverän zu nutzen. Das Ergebnis: weniger Überlastung, weniger manuelle Aufgaben, mehr Stabilität im Alltag.</p>
+          <a href="#" class="btn-primary">Kostenloses Erstgespräch</a>
+          <p class="hero-note">Unverbindlich. Erstgespräch dient der Bedarfsklärung.</p>
+        </div>
+        <div class="hero-image">
+          <!-- ERSETZE MIT DEINEM BILD ODER VIDEO -->
+          Image or video placeholder
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         GUARANTEE SECTION
+         ======================================== -->
+    <section class="guarantee">
+      <p>100% Zufriedenheitsgarantie:<br>Erstattung, falls Sie nach der ersten Sitzung nicht 100%ig zufrieden sind.</p>
+    </section>
+
+    <!-- ========================================
+         TESTIMONIALS SECTION
+         ======================================== -->
+    <section class="testimonials section section-center">
+      <div class="container">
+        <h2>Moderne Hausverwaltungen empfehlen uns begeistert weiter</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">Testimonial 1</div>
+          <div class="testimonial-card">Testimonial 2</div>
+          <div class="testimonial-card">Testimonial 3</div>
+        </div>
+        <a href="#" class="btn-primary">Kostenloses Erstgespräch</a>
+      </div>
+    </section>
+
+    <!-- ========================================
+         PROBLEM SECTION
+         ======================================== -->
+    <section class="problem section section-center">
+      <div class="container-narrow">
+        <h2>Fühlen Sie sich gefangen im reaktiven Tagesgeschäft, ohne klare Struktur und ohne Zeit für das Wesentliche?</h2>
+        <p>Jeden Tag kämpfen Sie gegen dieselben Engpässe: übervolle Postfächer, fragmentierte Systeme, ständige Unterbrechungen und ein Team, das kaum noch hinterherkommt.<br><br>Wir zeigen Ihnen, wie Sie mit einer modernen, KI‑augmentierten Arbeitsweise Ordnung schaffen, Routinen automatisieren und Ihrem Team spürbar mehr Stabilität und Zeit zurückgeben – ohne komplizierte Umstellungen.</p>
+        <a href="#" class="btn-primary">Kostenloses Erstgespräch</a>
+      </div>
+    </section>
+
+    <!-- ========================================
+         BENEFITS SECTION
+         ======================================== -->
+    <section class="benefits">
+      <!-- Benefit 1 -->
+      <div class="benefits-item">
+        <div class="benefits-image">
+          <span><strong>Image or video</strong> that complements and reinforce core value proposition</span>
+        </div>
+        <div class="benefits-content">
+          <p class="benefits-label">Sofort spürbare Entlastung im Team.</p>
+          <h3 class="benefits-title">So gewinnen Sie jede Woche mehrere Stunden</h3>
+          <p class="benefits-description">Kunden berichten im Durchschnitt von rund 4 Stunden Entlastung pro Woche pro Mitarbeitendem. KI übernimmt Schreiben, Recherchieren, Auswerten und viele der kleinen Aufgaben, die heute wertvolle Zeit blockieren.</p>
+        </div>
+      </div>
+
+      <!-- Benefit 2 -->
+      <div class="benefits-item reverse">
+        <div class="benefits-image">
+          <span><strong>Image or video</strong> that complements and reinforce core value proposition</span>
+        </div>
+        <div class="benefits-content">
+          <p class="benefits-label">Souverän mit KI arbeiten – ohne Überforderung.</p>
+          <h3 class="benefits-title">So befähigen Sie ihr Team KI sicher, bewusst und produktiv zu nutzen</h3>
+          <p class="benefits-description">Wir bauen Unsicherheiten, Blockaden und Berührungsängste systematisch ab – egal ob technikaffin oder „Urgestein". Durch praxisnahe Übungen, geführte Aufgaben und echte Beispiele entsteht ein souveräner und nachhaltiger Umgang mit KI. Das Ergebnis: weniger Stress, weniger manuelle Arbeit und ein Team, das gemeinsam vorankommt – statt sich abgehängt zu fühlen.</p>
+        </div>
+      </div>
+
+      <!-- Benefit 3 -->
+      <div class="benefits-item">
+        <div class="benefits-image">
+          <span><strong>Image or video</strong> that complements and reinforce core value proposition</span>
+        </div>
+        <div class="benefits-content">
+          <p class="benefits-label">DREAM OUTCOME SUMMARY</p>
+          <h3 class="benefits-title">So legen Sie in 4 Wochen das Fundament für eine moderne, KI‑gestützte Organisation</h3>
+          <p class="benefits-description">Wir etablieren mit Ihnen ein funktionierendes KI‑Grundgerüst: ein UnternehmensGPT für KI-Assistenten, ein sicherer Umgang im Team und eine tragfähige KI-Infrastruktur für alles, was danach kommt. Der perfekte Startpunkt, um Ihre Verwaltung nachhaltig zu modernisieren.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SOCIAL PROOF SECTION
+         ======================================== -->
+    <section class="social-proof section section-center">
+      <div class="container">
+        <h2>Social Proof Section (Stats, Testimonials, Case Studies, etc.)</h2>
+        <div class="social-proof-box">Social Proof</div>
+        <a href="#" class="btn-primary">Kostenloses Erstgespräch</a>
+      </div>
+    </section>
+
+    <!-- ========================================
+         FEATURES SECTION
+         ======================================== -->
+    <section class="features section section-center">
+      <div class="container">
+        <h2>Benefit Driven headline - how you do it as well as what makes you different</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <h4>Ergebnisse in 4 Wochen</h4>
+            <p>Ihr Team baut eigene KI‑Assistenten, die echte Arbeit abnehmen. Klare Schritte, klare Übungen, klare Ergebnisse.</p>
+          </div>
+          <div class="feature-card">
+            <h4>24/7 Betreuung</h4>
+            <p>Ihr Trainer ist auch zwischen den Terminen für Fragen da, geht auf individuelle Bedürfnisse ein und stellt sicher, dass wirklich alle mitkommen.</p>
+          </div>
+          <div class="feature-card">
+            <h4>Inhalte jederzeit nachholbar</h4>
+            <p>Alle Webinare werden aufgezeichnet, damit Mitarbeitende Ausfälle oder Engpässe unkompliziert nacharbeiten können.</p>
+          </div>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <h4>DSGVO‑konforme KI</h4>
+            <p>Mit Langdock als CompanyGPT sicher und unternehmenseigen.</p>
+          </div>
+          <div class="feature-card">
+            <h4>Webinare, Diskussionsrunden und Praxisaufgaben</h4>
+            <p>Mit verschiedenen Formaten stellen wir sicher, dass das Team KI wirklich versteht – und dauerhaft damit arbeiten kann.</p>
+          </div>
+          <div class="feature-card">
+            <h4>Spürbare Entlastung</h4>
+            <p>Kunden berichten von 4 Stunden Entlastung pro Woche pro Mitarbeitendem.</p>
+          </div>
+        </div>
+        <a href="#" class="btn-primary">Kostenloses Erstgespräch</a>
+      </div>
+    </section>
+
+    <!-- ========================================
+         PROCESS SECTION (HOW IT WORKS)
+         ======================================== -->
+    <section class="process section section-center">
+      <div class="container">
+        <h2>How it works?</h2>
+        <div class="process-grid">
+          <div class="process-step">
+            <p class="process-step-number">Schritt 1:</p>
+            <p class="process-step-title">Book Assessment Call</p>
+            <p>Wir klären in wenigen Minuten Ihre Situation, Ziele und ob das Programm optimal zu Ihrer Verwaltung passt.</p>
+          </div>
+          <div class="process-step">
+            <p class="process-step-number">Schritt 2:</p>
+            <p class="process-step-title">Check, if Kickstart is right fit</p>
+            <p>Sie erhalten sofort Ihren Zugang, wir richten alles ein und bereiten Ihr Team auf einen reibungslosen Start vor.</p>
+          </div>
+          <div class="process-step">
+            <p class="process-step-number">Schritt 3:</p>
+            <p class="process-step-title">Let's go</p>
+            <p>Gemeinsam wählen wir den Starttermin – und Ihr Team legt direkt mit dem KI‑Kickstart‑Programm los.</p>
+          </div>
+        </div>
+        <a href="#" class="btn-primary">Kostenloses Erstgespräch</a>
+      </div>
+    </section>
+
+    <!-- ========================================
+         DISCOUNT SECTION (IVD RABATT)
+         ======================================== -->
+    <section class="discount section section-center">
+      <div class="container">
+        <h2>Rabatt für IVD Mitglieder</h2>
+        <div class="discount-box">
+          <h4>Headline</h4>
+          <p>Body text</p>
+        </div>
+        <a href="#" class="btn-primary">Kostenloses Erstgespräch</a>
+      </div>
+    </section>
+
+    <!-- ========================================
+         TEAM SECTION
+         ======================================== -->
+    <section class="team section section-center">
+      <div class="container">
+        <h2>Meet The Team</h2>
+
+        <!-- Team Member 1 -->
+        <div class="team-member">
+          <div class="team-image-box">
+            <p>Image</p>
+            <p class="name">Victor Reisenauer</p>
+            <p class="role">KI-Berater</p>
+          </div>
+          <div class="team-description-box">
+            <p>Victor führt das Erstgespräch, klärt Ihre individuellen Ziele und beantwortet alle offenen Fragen. Er zeigt Ihnen, wie der KI‑Kickstart optimal zu Ihrer Verwaltung passt und welche Schritte für Sie den größten Nutzen bringen.</p>
+          </div>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="team-member reverse">
+          <div class="team-image-box">
+            <p>Image</p>
+            <p class="name">Lukas Sontheimer</p>
+            <p class="role">Ihr professioneller KI-Trainer</p>
+          </div>
+          <div class="team-description-box">
+            <p>Lukas übernimmt Ihr Onboarding, richtet Zugänge ein und führt Ihr Team Schritt für Schritt durch das gesamte Programm. Er sorgt dafür, dass alle mitkommen, Blockaden abgebaut werden und die Inhalte sicher und praxisnah im Alltag ankommen.</p>
+          </div>
+        </div>
+
+        <a href="#" class="btn-primary">Kostenloses Erstgespräch</a>
+      </div>
+    </section>
+
+    <!-- ========================================
+         RISK FREE SECTION
+         ======================================== -->
+    <section class="risk-free">
+      <h3>Null-Risiko-Starthilfe:</h3>
+      <p>Buchen Sie Ihr unverbindliches Erstgespräch.<br>Erst im Anschluss entscheiden wir ob und wann wir mit der Durchführung beginnen.<br>Keine Verpflichtung, keine versteckten Kosten, volle Transparenz.</p>
+    </section>
+
+    <!-- ========================================
+         FAQ SECTION
+         ======================================== -->
+    <section class="faq section section-center">
+      <div class="container-faq">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Wie viel Zeit muss mein Team wirklich einplanen?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            Rund 60 Minuten pro Woche für das Webinar mit optional 30 Minuten Diskussionsrunde im Anschluss. Plus ca. 30 Minuten Praxisaufgabe. Maximal also 2 Stunden pro Woche – das Programm ist bewusst ressourcenschonend aufgebaut, damit der Betrieb weiterläuft.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Brauchen wir technisches Vorwissen oder spezielle Voraussetzungen?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            Nein. Es sind keine technischen Vorkenntnisse erforderlich. Nur eine grundlegende digitale Arbeitsweise (z. B. digitales Vorgangsmanagement) wird empfohlen.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Was passiert, wenn im Team Unsicherheiten oder Widerstände gegenüber KI bestehen?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            Ihr Trainer holt alle ab, baut Blockaden ab und geht auf individuelle Bedürfnisse ein. Auch "Urgesteine" kommen sicher mit – durch klare, praxisnahe Schritt-für-Schritt-Anleitung.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Wie sicher sind unsere Daten? Ist das DSGVO-konform?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            Wir arbeiten mit Langdock, einer vollständig DSGVO-konformen Plattform, die von führenden deutschen Unternehmen bereits sicher genutzt wird.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Welche konkreten Ergebnisse können wir nach den 4 Wochen erwarten?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            Ihr Team nutzt KI sicher, hat erste eigene Assistenten gebaut und erreicht spürbare Entlastung. Kunden berichten von rund 4 Stunden Zeitersparnis pro Woche pro Person.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Wie läuft der Start ab, wenn wir uns für das Programm entscheiden?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            Sie vereinbaren ein Erstgespräch, erhalten anschließend das Onboarding mit Zugängen und starten danach direkt ins Programm.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================
+         FINAL CTA SECTION
+         ======================================== -->
+    <section class="final-cta">
+      <div class="final-cta-container">
+        <div class="final-cta-content">
+          <p class="final-cta-pretitle">Bereits 12+ Verwaltungen erfolgreich gestartet</p>
+          <h2>Jetzt Platz sichern – nur 4 Durchführungen pro Monat möglich</h2>
+          <p class="final-cta-description">Wir begleiten jedes Team persönlich – deshalb ist die Anzahl der Durchführungen pro Monat begrenzt. Wenn Sie zeitnah starten wollen, sichern Sie sich jetzt einen der freien Termine.</p>
+          <ul class="final-cta-list">
+            <li>
+              <span class="checkmark">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              Persönliche Begleitung durch Berater & Trainer
+            </li>
+            <li>
+              <span class="checkmark">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              Spürbare Entlastung und echte KI‑Ergebnisse in 4 Wochen
+            </li>
+            <li>
+              <span class="checkmark">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              Sicherer, praxisnaher Einstieg ohne technischen Aufwand
+            </li>
+          </ul>
+        </div>
+        <div class="final-cta-image">
+          <h4>Bild, das Druck aufbaut</h4>
+          <p>zB: zwei Flughafen - Checkin Counter<br>einer mit einer langen Schlange von Menschen und überschrift "Handlungsunsicherheit"<br><br>der andere mit überschrift "erstgespräch gebucht und handlungssicher" mit weniger menschen.<br>"vorzugsbehandlung"</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================
+       FOOTER
+       ======================================== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-logo">
+          <!-- ERSETZE MIT DEINEM LOGO -->
+          <img src="YOUR_LOGO_URL_HERE" alt="mitarbyte Logo">
+          <p>Mitarbeit von morgen – Wir machen Ihr Team fit für die KI-Zukunft.</p>
+        </div>
+
+        <div class="footer-contact">
+          <h4>Kontakt</h4>
+          <a href="tel:+4917624084651">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            +49 176 24084651
+          </a>
+          <a href="mailto:info@mitarbyte.de">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            info@mitarbyte.de
+          </a>
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            Deutschland
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>Rechtliches</h4>
+          <a href="#">Impressum</a>
+          <a href="#">Datenschutz</a>
+          <a href="#">AGB</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 mitarbyte. Alle Rechte vorbehalten.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================
+       FAQ TOGGLE SCRIPT
+       ======================================== -->
+  <script>
+    function toggleFAQ(button) {
+      const faqItem = button.parentElement;
+      const isOpen = faqItem.classList.contains('open');
+      
+      // Close all FAQ items
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('open');
+      });
+      
+      // Open clicked item if it wasn't open
+      if (!isOpen) {
+        faqItem.classList.add('open');
+      }
+    }
+  </script>
+
+</body>
+</html>
