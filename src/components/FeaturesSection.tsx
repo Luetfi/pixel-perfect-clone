@@ -35,34 +35,34 @@ export const FeaturesSection: React.FC = () => {
               <FeatureCard
                 title="Ergebnisse in 4 Wochen"
                 description="Ihr Team baut eigene KI‑Assistenten, die echte Arbeit abnehmen. Klare Schritte, klare Übungen, klare Ergebnisse."
-                className="min-h-[383px] aspect-[1] py-[140px]"
+                className="min-h-[320px] aspect-[1] p-8"
               />
               <FeatureCard
                 title="24/7 Betreuung"
                 description="Ihr Trainer ist auch zwischen den Terminen für Fragen da, geht auf individuelle Bedürfnisse ein und stellt sicher, dass wirklich alle mitkommen."
-                className="min-h-[383px] aspect-[1] py-[140px]"
+                className="min-h-[320px] aspect-[1] p-8"
               />
               <FeatureCard
                 title="Inhalte jederzeit nachholbar"
                 description="Alle Webinare werden aufgezeichnet, damit Mitarbeitende Ausfälle oder Engpässe unkompliziert nacharbeiten können."
-                className="min-h-[383px] aspect-[1] leading-[31px] py-[140px]"
+                className="min-h-[320px] aspect-[1] p-8"
               />
             </div>
             <div className="flex w-full gap-[40px_48px] flex-wrap mt-12 max-md:max-w-full max-md:mt-10">
               <FeatureCard
                 title="DSGVO‑konforme KI"
                 description="Mit Langdock als CompanyGPT sicher und unternehmenseigen."
-                className="py-[140px]"
+                className="min-h-[320px] aspect-[1] p-8"
               />
               <FeatureCard
                 title="Webinare, Diskussionsrunden und Praxisaufgaben"
                 description="Mit verschiedenen Formaten stellen wir sicher, dass das Team KI wirklich versteht – und dauerhaft damit arbeiten kann."
-                className="min-h-[414px] leading-[31px] py-[78px]"
+                className="min-h-[320px] aspect-[1] p-8"
               />
               <FeatureCard
                 title="Spürbare Entlastung"
                 description="Kunden berichten von 4 Stunden Entlastung pro Woche pro Mitarbeitendem."
-                className="py-[140px]"
+                className="min-h-[320px] aspect-[1] p-8"
               />
             </div>
           </div>
