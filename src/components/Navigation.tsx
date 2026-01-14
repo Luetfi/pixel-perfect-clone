@@ -11,7 +11,7 @@ export const Navigation: React.FC = () => {
         {/* Desktop Layout */}
         <div className="hidden md:flex w-full max-w-7xl items-center justify-between">
           <div className="flex items-center">
-            <img src={logo} alt="mitarbyte - Mitarbeit von morgen" className="h-10" />
+            <img src={logo} alt="mitarbyte - Mitarbeit von morgen" className="h-14" />
           </div>
           <div className="flex items-center gap-6">
             <a 
