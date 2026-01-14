@@ -31,10 +31,12 @@ export const DiscountSection: React.FC = () => {
               Sprechen Sie uns im Erstgespräch darauf an.
             </p>
             
-            <CustomButton variant="primary" size="lg" className="group">
-              Erstgespräch vereinbaren
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </CustomButton>
+            <a href="#erstgespraech">
+              <CustomButton variant="primary" size="lg" className="group">
+                Erstgespräch vereinbaren
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </CustomButton>
+            </a>
           </div>
         </motion.div>
       </div>
