@@ -450,7 +450,7 @@
     .ghl-calendar-embed iframe { width: 100%; height: 100%; min-height: 600px; border: none; }
     
     /* Footer */
-    .footer { background-color: var(--primary); color: var(--primary-foreground); }
+    .footer { background-color: var(--primary); color: var(--primary-foreground); margin-bottom: 0 !important; padding-bottom: 0 !important; }
     .footer a { color: rgba(255, 255, 255, 0.7); transition: color 0.2s; }
     .footer a:hover { color: var(--brand-cyan); }
     .footer .contact-icon {
@@ -465,6 +465,13 @@
     }
     .footer .contact-icon:hover { background-color: rgba(63, 241, 234, 0.2); }
     .footer .contact-icon svg { width: 1rem; height: 1rem; color: var(--brand-cyan); }
+    
+    /* Remove any whitespace after footer - extend footer background */
+    html, body { margin-bottom: 0 !important; padding-bottom: 0 !important; }
+    footer.footer { 
+      margin-bottom: -100px; 
+      padding-bottom: 100px !important; 
+    }
     
     @media (max-width: 767px) { .hero .visual-section { display: none; } }
   </style>
@@ -884,9 +891,9 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="section-padding" style="padding-bottom:2rem;">
+    <div class="section-padding" style="padding-bottom:1.5rem;">
       <div class="container-wide">
-        <div class="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-4 gap-8 mb-16" style="gap:3rem;grid-template-columns:2fr 1fr 1fr;">
+        <div class="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-4 gap-8 mb-8" style="gap:3rem;grid-template-columns:2fr 1fr 1fr;">
           <div>
             <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" style="display:inline-block;margin-bottom:1.5rem;">
               <!-- LOGO Footer: Ersetzen Sie die URL mit Ihrem hochgeladenen Logo (weiße Version) -->
