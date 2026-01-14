@@ -1,29 +1,65 @@
 import React from 'react';
 import { CustomButton } from './ui/CustomButton';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 export const SocialProofSection: React.FC = () => {
+  const stats = [
+    { value: '12+', label: 'Verwaltungen erfolgreich betreut' },
+    { value: '4h+', label: 'Zeitersparnis pro Woche/Person' },
+    { value: '100%', label: 'Zufriedenheitsgarantie' },
+    { value: '4', label: 'Wochen zum Ergebnis' }
+  ];
+
   return (
-    <section className="bg-[rgba(235,235,235,1)] border flex w-full flex-col overflow-hidden items-center text-center justify-center px-[90px] py-20 border-black border-solid max-md:max-w-full max-md:px-5">
-      <div className="flex w-[1200px] max-w-full gap-8 justify-center">
-        <div className="flex min-w-60 w-[1200px] flex-col items-stretch justify-center max-md:max-w-full">
-          <div className="flex w-full flex-col items-stretch text-black justify-center max-md:max-w-full">
-            <h2 className="text-[44px] font-semibold leading-[53px] self-center w-[748px] max-md:max-w-full">
-              Social Proof Section (Stats, Testimonials, Case Studies, etc.)
-            </h2>
-            <div className="flex w-full gap-[40px_48px] text-2xl font-bold leading-[1.3] mt-12 max-md:max-w-full max-md:mt-10">
-              <div className="bg-white flex min-w-60 w-full items-center gap-2.5 justify-center flex-1 shrink basis-[0%] px-[157px] py-[140px] border-black border-solid border-2 max-md:max-w-full max-md:px-5 max-md:py-[100px]">
-                <div className="self-stretch w-[322px] my-auto">
-                  Social Proof
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="self-center flex gap-4 text-xl text-white font-bold uppercase mt-12 max-md:mt-10">
-            <CustomButton variant="primary">
-              Kostenloses Erstgespräch
-            </CustomButton>
-          </div>
+    <section className="section-padding bg-primary text-primary-foreground">
+      <div className="container-wide">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-primary-foreground mb-4">
+            Zahlen, die für sich sprechen
+          </h2>
+          <p className="text-lg text-primary-foreground/70 max-w-2xl mx-auto">
+            Messbare Ergebnisse für Ihr Team
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="text-center"
+            >
+              <p className="text-4xl md:text-5xl font-bold text-brand-cyan mb-2">
+                {stat.value}
+              </p>
+              <p className="text-primary-foreground/70 text-sm md:text-base">
+                {stat.label}
+              </p>
+            </motion.div>
+          ))}
         </div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="text-center"
+        >
+          <CustomButton variant="primary" size="lg" className="group">
+            Kostenloses Erstgespräch
+            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+          </CustomButton>
+        </motion.div>
       </div>
     </section>
   );

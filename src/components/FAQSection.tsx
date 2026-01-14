@@ -1,44 +1,61 @@
 import React, { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, Plus, Minus } from 'lucide-react';
 
 interface FAQItemProps {
   question: string;
-  answer?: string;
+  answer: string;
   isOpen: boolean;
   onToggle: () => void;
+  index: number;
 }
 
-const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onToggle }) => {
+const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onToggle, index }) => {
   return (
-    <div className="w-full max-w-[777px] mt-8 max-md:max-w-full">
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.05 }}
+      className="border-b border-border/50 last:border-0"
+    >
       <button
         onClick={onToggle}
-        className="flex w-full items-center gap-[21px] flex-wrap max-md:max-w-full text-left"
+        className="flex w-full items-center justify-between py-6 text-left group"
         aria-expanded={isOpen}
       >
-        <div className="self-stretch flex min-w-60 flex-col flex-1 shrink basis-[0%] my-auto max-md:max-w-full">
-          <div className="flex items-center gap-[19px] max-md:max-w-full">
-            <div className="text-[#241B41] self-stretch my-auto max-md:max-w-full">
-              {question}
-            </div>
-          </div>
+        <span className="text-lg font-medium text-foreground pr-8 group-hover:text-brand-cyan transition-colors">
+          {question}
+        </span>
+        <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-brand-cyan text-primary' : 'bg-muted text-muted-foreground'}`}>
+          {isOpen ? (
+            <Minus className="w-4 h-4" />
+          ) : (
+            <Plus className="w-4 h-4" />
+          )}
         </div>
-        <ChevronDown 
-          className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
-        />
       </button>
-      {isOpen && answer && (
-        <div className="mt-4 text-[#241B41] text-lg leading-relaxed max-md:max-w-full">
-          {answer}
-        </div>
-      )}
-      <div className="border min-h-px w-full mt-6 border-black border-solid max-md:max-w-full" />
-    </div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <p className="text-muted-foreground text-lg leading-relaxed pb-6">
+              {answer}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 };
 
 export const FAQSection: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const faqs = [
     {
@@ -51,7 +68,7 @@ export const FAQSection: React.FC = () => {
     },
     {
       question: "Was passiert, wenn im Team Unsicherheiten oder Widerstände gegenüber KI bestehen?",
-      answer: 'Ihr Trainer holt alle ab, baut Blockaden ab und geht auf individuelle Bedürfnisse ein. Auch "Urgesteine" kommen sicher mit – durch klare, praxisnahe Schritt-für-Schritt-Anleitung.'
+      answer: "Ihr Trainer holt alle ab, baut Blockaden ab und geht auf individuelle Bedürfnisse ein. Auch \"Urgesteine\" kommen sicher mit – durch klare, praxisnahe Schritt-für-Schritt-Anleitung."
     },
     {
       question: "Wie sicher sind unsere Daten? Ist das DSGVO-konform?",
@@ -72,16 +89,23 @@ export const FAQSection: React.FC = () => {
   };
 
   return (
-    <section className="bg-white flex w-full flex-col overflow-hidden items-center text-[#241B41] font-bold justify-center px-[331px] py-20 max-md:max-w-full max-md:px-5">
-      <div className="flex max-w-full w-[777px] flex-col items-stretch">
-        <div className="w-full text-[40px] text-center leading-none max-md:max-w-full">
-          <div className="flex flex-col max-md:max-w-full">
-            <h2 className="text-[#241B41] max-md:max-w-full">
-              Frequently Asked Questions
-            </h2>
-          </div>
-        </div>
-        <div className="self-center w-full text-2xl leading-loose mt-12 max-md:mt-10">
+    <section className="section-padding bg-background">
+      <div className="container-tight">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-foreground mb-4">
+            Häufig gestellte Fragen
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Alles, was Sie vor dem Start wissen sollten
+          </p>
+        </motion.div>
+
+        <div className="bg-card rounded-2xl border border-border/50 p-6 md:p-10">
           {faqs.map((faq, index) => (
             <FAQItem
               key={index}
@@ -89,6 +113,7 @@ export const FAQSection: React.FC = () => {
               answer={faq.answer}
               isOpen={openIndex === index}
               onToggle={() => handleToggle(index)}
+              index={index}
             />
           ))}
         </div>

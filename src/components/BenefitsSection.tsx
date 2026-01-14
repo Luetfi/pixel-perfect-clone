@@ -1,79 +1,110 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { Clock, Users, Sparkles, Play } from 'lucide-react';
 
 interface BenefitCardProps {
+  icon: React.ReactNode;
+  label: string;
   title: string;
-  subtitle: string;
   description: string;
   imagePosition: 'left' | 'right';
+  index: number;
 }
 
-const BenefitCard: React.FC<BenefitCardProps> = ({ title, subtitle, description, imagePosition }) => {
+const BenefitCard: React.FC<BenefitCardProps> = ({ icon, label, title, description, imagePosition, index }) => {
   const content = (
-    <div className="self-stretch min-w-60 w-[534px] my-auto max-md:max-w-full">
-      <div className="w-full max-md:max-w-full">
-        <div className="w-full font-semibold max-md:max-w-full">
-          <div className="text-[rgba(51,51,51,1)] text-base uppercase max-md:max-w-full">
-            {title}
-          </div>
-          <h3 className="text-black text-[40px] leading-[48px] mt-2 max-md:max-w-full">
-            {subtitle}
-          </h3>
+    <motion.div 
+      initial={{ opacity: 0, x: imagePosition === 'left' ? 20 : -20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      className="flex flex-col justify-center"
+    >
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-10 h-10 rounded-xl bg-brand-cyan/10 flex items-center justify-center">
+          {icon}
         </div>
-        <p className="text-[#363328] text-base font-normal leading-6 mt-4 max-md:max-w-full">
-          {description}
-        </p>
+        <span className="text-sm font-semibold text-brand-cyan uppercase tracking-wider">
+          {label}
+        </span>
       </div>
-    </div>
+      <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-4 leading-tight">
+        {title}
+      </h3>
+      <p className="text-muted-foreground text-lg leading-relaxed">
+        {description}
+      </p>
+    </motion.div>
   );
 
   const image = (
-    <div className="bg-white border self-stretch flex min-w-60 min-h-[534px] flex-col overflow-hidden items-stretch text-2xl text-black font-normal text-center leading-[31px] justify-center w-[574px] my-auto px-[90px] py-[221px] border-black border-solid max-md:max-w-full max-md:px-5 max-md:py-[100px]">
-      <div>
-        <span className="font-bold">Image or video </span>that complements and reinforce core value proposition
+    <motion.div 
+      initial={{ opacity: 0, x: imagePosition === 'left' ? -20 : 20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-muted to-muted/50 border border-border/50 overflow-hidden"
+    >
+      <div className="h-full flex items-center justify-center p-8">
+        <div className="text-center">
+          <div className="w-16 h-16 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center mx-auto mb-3">
+            <Play className="w-6 h-6 text-brand-cyan" />
+          </div>
+          <p className="text-muted-foreground text-sm font-medium">Bild / Video</p>
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 
   return (
-    <div className="bg-white flex flex-col overflow-hidden items-center justify-center px-[120px] py-10 max-md:max-w-full max-md:px-5">
-      <div className="flex items-center gap-[40px_92px] flex-wrap max-md:max-w-full">
-        {imagePosition === 'left' ? (
-          <>
-            {image}
-            {content}
-          </>
-        ) : (
-          <>
-            {content}
-            {image}
-          </>
-        )}
-      </div>
+    <div className={`grid md:grid-cols-2 gap-8 md:gap-16 items-center ${index !== 0 ? 'mt-16 md:mt-24' : ''}`}>
+      {imagePosition === 'left' ? (
+        <>
+          {image}
+          {content}
+        </>
+      ) : (
+        <>
+          <div className="order-2 md:order-1">{content}</div>
+          <div className="order-1 md:order-2">{image}</div>
+        </>
+      )}
     </div>
   );
 };
 
 export const BenefitsSection: React.FC = () => {
+  const benefits = [
+    {
+      icon: <Clock className="w-5 h-5 text-brand-cyan" />,
+      label: "Zeitersparnis",
+      title: "So gewinnen Sie jede Woche mehrere Stunden",
+      description: "Kunden berichten im Durchschnitt von rund 4 Stunden Entlastung pro Woche pro Mitarbeitendem. KI übernimmt Schreiben, Recherchieren, Auswerten und viele der kleinen Aufgaben, die heute wertvolle Zeit blockieren.",
+      imagePosition: 'left' as const
+    },
+    {
+      icon: <Users className="w-5 h-5 text-brand-cyan" />,
+      label: "Team-Befähigung",
+      title: "So befähigen Sie ihr Team KI sicher und produktiv zu nutzen",
+      description: "Wir bauen Unsicherheiten, Blockaden und Berührungsängste systematisch ab – egal ob technikaffin oder „Urgestein\". Durch praxisnahe Übungen, geführte Aufgaben und echte Beispiele entsteht ein souveräner und nachhaltiger Umgang mit KI.",
+      imagePosition: 'right' as const
+    },
+    {
+      icon: <Sparkles className="w-5 h-5 text-brand-cyan" />,
+      label: "Transformation",
+      title: "So legen Sie das Fundament für eine moderne, KI‑gestützte Organisation",
+      description: "Wir etablieren mit Ihnen ein funktionierendes KI‑Grundgerüst: ein UnternehmensGPT für KI-Assistenten, ein sicherer Umgang im Team und eine tragfähige KI-Infrastruktur für alles, was danach kommt.",
+      imagePosition: 'left' as const
+    }
+  ];
+
   return (
-    <section>
-      <BenefitCard
-        title="Sofort spürbare Entlastung im Team."
-        subtitle="So gewinnen Sie jede Woche mehrere Stunden"
-        description="Kunden berichten im Durchschnitt von rund 4 Stunden Entlastung pro Woche pro Mitarbeitendem. KI übernimmt Schreiben, Recherchieren, Auswerten und viele der kleinen Aufgaben, die heute wertvolle Zeit blockieren."
-        imagePosition="left"
-      />
-      <BenefitCard
-        title="Souverän mit KI arbeiten – ohne Überforderung."
-        subtitle="So befähigen Sie ihr Team KI sicher, bewusst und produktiv zu nutzen"
-        description={"Wir bauen Unsicherheiten, Blockaden und Berührungsängste systematisch ab – egal ob technikaffin oder „Urgestein\". Durch praxisnahe Übungen, geführte Aufgaben und echte Beispiele entsteht ein souveräner und nachhaltiger Umgang mit KI. Das Ergebnis: weniger Stress, weniger manuelle Arbeit und ein Team, das gemeinsam vorankommt – statt sich abgehängt zu fühlen."}
-        imagePosition="right"
-      />
-      <BenefitCard
-        title="DREAM OUTCOME SUMMARY"
-        subtitle="So legen Sie in 4 Wochen das Fundament für eine moderne, KI‑gestützte Organisation"
-        description="Wir etablieren mit Ihnen ein funktionierendes KI‑Grundgerüst: ein UnternehmensGPT für KI-Assistenten, ein sicherer Umgang im Team und eine tragfähige KI-Infrastruktur für alles, was danach kommt. Der perfekte Startpunkt, um Ihre Verwaltung nachhaltig zu modernisieren."
-        imagePosition="left"
-      />
+    <section className="section-padding bg-background">
+      <div className="container-wide">
+        {benefits.map((benefit, index) => (
+          <BenefitCard key={index} {...benefit} index={index} />
+        ))}
+      </div>
     </section>
   );
 };

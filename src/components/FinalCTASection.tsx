@@ -1,68 +1,86 @@
 import React from 'react';
 import { CustomButton } from './ui/CustomButton';
-import { Check } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Check, ArrowRight, Users, Zap, Shield, Play } from 'lucide-react';
 
 export const FinalCTASection: React.FC = () => {
+  const benefits = [
+    { icon: <Users className="w-4 h-4" />, text: "Persönliche Begleitung durch Berater & Trainer" },
+    { icon: <Zap className="w-4 h-4" />, text: "Spürbare Entlastung und echte KI‑Ergebnisse in 4 Wochen" },
+    { icon: <Shield className="w-4 h-4" />, text: "Sicherer, praxisnaher Einstieg ohne technischen Aufwand" }
+  ];
+
   return (
-    <section className="bg-[rgba(235,235,235,1)] flex w-full flex-col overflow-hidden items-center justify-center pl-[69px] pr-[68px] py-20 max-md:max-w-full max-md:px-5">
-      <div className="flex max-w-full w-[1303px] items-stretch gap-[40px_80px] flex-wrap">
-        <div className="flex min-w-60 flex-col items-stretch justify-center grow shrink w-[469px] max-md:max-w-full">
-          <div className="max-w-full w-[585px]">
-            <div className="text-[rgba(51,51,51,1)] text-xl font-normal max-md:max-w-full">
-              Bereits 12+ Verwaltungen erfolgreich gestartet
+    <section className="section-padding bg-muted/30">
+      <div className="container-wide">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-cyan/10 border border-brand-cyan/20 mb-6">
+              <span className="text-sm font-medium text-brand-cyan">
+                Bereits 12+ Verwaltungen erfolgreich gestartet
+              </span>
             </div>
-            <div className="flex w-full max-w-[585px] flex-col items-stretch mt-4 max-md:max-w-full">
-              <div className="w-full max-md:max-w-full">
-                <h2 className="text-black text-[42px] font-bold leading-[50px] max-md:max-w-full">
-                  Jetzt Platz sichern – nur 4 Durchführungen pro Monat möglich
-                </h2>
-                <p className="text-[rgba(51,51,51,1)] text-xl font-normal leading-[30px] mt-4 max-md:max-w-full">
-                  Wir begleiten jedes Team persönlich – deshalb ist die Anzahl der Durchführungen pro Monat begrenzt. Wenn Sie zeitnah starten wollen, sichern Sie sich jetzt einen der freien Termine.
-                </p>
-                <div className="w-full mt-4 max-md:max-w-full">
-                  <div className="flex w-full items-center gap-4 flex-wrap max-md:max-w-full">
-                    <div className="bg-[rgba(204,204,204,1)] self-stretch flex min-h-6 items-center justify-center gap-2.5 w-6 h-6 my-auto p-1 rounded-xl">
-                      <Check className="w-4 h-4" />
-                    </div>
-                    <div className="text-[rgba(51,51,51,1)] text-xl font-normal self-stretch flex-1 shrink basis-[0%] my-auto max-md:max-w-full">
-                      Persönliche Begleitung durch Berater & Trainer
-                    </div>
+
+            <h2 className="text-foreground mb-6">
+              Jetzt Platz sichern – nur 4 Durchführungen pro Monat möglich
+            </h2>
+
+            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+              Wir begleiten jedes Team persönlich – deshalb ist die Anzahl der Durchführungen pro Monat begrenzt. 
+              Wenn Sie zeitnah starten wollen, sichern Sie sich jetzt einen der freien Termine.
+            </p>
+
+            <div className="space-y-4 mb-8">
+              {benefits.map((benefit, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="flex items-center gap-4"
+                >
+                  <div className="w-8 h-8 rounded-full bg-brand-cyan/10 flex items-center justify-center flex-shrink-0">
+                    <Check className="w-4 h-4 text-brand-cyan" />
                   </div>
-                  <div className="flex w-full items-center gap-4 flex-wrap mt-2 max-md:max-w-full">
-                    <div className="bg-[rgba(204,204,204,1)] self-stretch flex min-h-6 items-center justify-center gap-2.5 w-6 h-6 my-auto p-1 rounded-xl">
-                      <Check className="w-4 h-4" />
-                    </div>
-                    <div className="text-[rgba(51,51,51,1)] text-xl font-normal leading-[30px] self-stretch flex-1 shrink basis-[0%] my-auto max-md:max-w-full">
-                      Spürbare Entlastung und echte KI‑Ergebnisse in 4 Wochen
-                    </div>
+                  <span className="text-foreground">{benefit.text}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            <CustomButton variant="primary" size="lg" className="group">
+              Kostenloses Erstgespräch buchen
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </CustomButton>
+          </motion.div>
+
+          {/* Visual */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-muted to-muted/50 border border-border/50 shadow-xl overflow-hidden">
+              <div className="h-full flex items-center justify-center p-8">
+                <div className="text-center">
+                  <div className="w-20 h-20 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center mx-auto mb-4">
+                    <Play className="w-8 h-8 text-brand-cyan" />
                   </div>
-                  <div className="flex w-full items-center gap-4 flex-wrap mt-2 max-md:max-w-full">
-                    <div className="bg-[rgba(204,204,204,1)] self-stretch flex min-h-6 items-center justify-center gap-2.5 w-6 h-6 my-auto p-1 rounded-xl">
-                      <Check className="w-4 h-4" />
-                    </div>
-                    <div className="text-[rgba(51,51,51,1)] text-xl font-normal self-stretch flex-1 shrink basis-[0%] my-auto max-md:max-w-full">
-                      Sicherer, praxisnaher Einstieg ohne technischen Aufwand
-                    </div>
-                  </div>
+                  <p className="text-muted-foreground font-medium">Visualisierung / Bild</p>
+                  <p className="text-sm text-muted-foreground/70 mt-2 max-w-xs">
+                    Von Unsicherheit zu klarer Handlungsfähigkeit
+                  </p>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="bg-white flex min-w-60 min-h-[530px] flex-col items-center text-2xl text-black text-center justify-center grow shrink w-[520px] pl-[42px] pr-[43px] py-[105px] border-black border-solid border-2 max-md:max-w-full max-md:px-5 max-md:py-[100px]">
-          <div className="font-bold leading-[1.3]">
-            Bild, das Druck aufbaut
-          </div>
-          <div className="font-normal leading-[31px] mt-2.5 max-md:max-w-full">
-            zB: zwei Flughafen - Checkin Counter
-            <br />
-            einer mit einer langen Schlange von Menschen und überschrift "Handlungsunsicherheit"
-            <br />
-            <br />
-            der andere mit überschrift "erstgespräch gebucht und handlungssicher" mit weniger menschen.
-            <br />
-            "vorzugsbehandlung"
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
