@@ -1,0 +1,15 @@
+<svg viewBox="0 0 360 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main text "mitarbyte" with explicit styling -->
+  <text x="0" y="48" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="bold" fill="#000000">mitarbyte</text>
+  
+  <!-- Cyan network dots (top right) -->
+  <circle cx="310" cy="8" r="5" fill="#5AD8D3"/>
+  <circle cx="335" cy="6" r="4" fill="#5AD8D3"/>
+  <circle cx="325" cy="24" r="4" fill="#5AD8D3"/>
+  <circle cx="350" cy="22" r="4" fill="#5AD8D3"/>
+  
+  <!-- Connection lines -->
+  <line x1="310" y1="8" x2="335" y2="6" stroke="#5AD8D3" stroke-width="1"/>
+  <line x1="310" y1="8" x2="325" y2="24" stroke="#5AD8D3" stroke-width="1"/>
+  <line x1="310" y1="8" x2="350" y2="22" stroke="#5AD8D3" stroke-width="1"/>
+</svg>
