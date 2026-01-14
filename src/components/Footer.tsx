@@ -11,11 +11,16 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Logo & Description */}
           <div className="lg:col-span-2">
-            <img 
-              src={logo} 
-              alt="mitarbyte Logo" 
-              className="h-10 mb-6 brightness-0 invert"
-            />
+            <a 
+              href="#" 
+              onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            >
+              <img 
+                src={logo} 
+                alt="mitarbyte Logo" 
+                className="h-10 mb-6 brightness-0 invert cursor-pointer hover:opacity-80 transition-opacity"
+              />
+            </a>
             <p className="text-primary-foreground/70 leading-relaxed max-w-md">
               Mitarbeit von morgen – Wir machen Ihr Team fit für die KI-Zukunft. 
               Praxisnah, begleitet und auf Ihre Bedürfnisse zugeschnitten.
