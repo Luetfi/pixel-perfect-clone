@@ -1,79 +1,80 @@
 import React from 'react';
 import logo from '@/assets/logo.png';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowUpRight } from 'lucide-react';
 
 export const Footer: React.FC = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-brand-navy text-white py-16 px-6 md:px-12">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          {/* Logo & Beschreibung */}
-          <div className="flex flex-col items-start">
+    <footer className="bg-primary text-primary-foreground">
+      <div className="container-wide section-padding pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          {/* Logo & Description */}
+          <div className="lg:col-span-2">
             <img 
               src={logo} 
               alt="mitarbyte Logo" 
-              className="h-12 mb-4 brightness-0 invert"
+              className="h-10 mb-6 brightness-0 invert"
             />
-            <p className="text-gray-300 text-sm leading-relaxed">
-              Mitarbeit von morgen – Wir machen Ihr Team fit für die KI-Zukunft.
+            <p className="text-primary-foreground/70 leading-relaxed max-w-md">
+              Mitarbeit von morgen – Wir machen Ihr Team fit für die KI-Zukunft. 
+              Praxisnah, begleitet und auf Ihre Bedürfnisse zugeschnitten.
             </p>
           </div>
 
-          {/* Kontakt */}
-          <div className="flex flex-col">
-            <h4 className="text-brand-cyan font-bold text-lg mb-4">Kontakt</h4>
-            <div className="space-y-3">
+          {/* Contact */}
+          <div>
+            <h4 className="text-brand-cyan font-semibold mb-6">Kontakt</h4>
+            <div className="space-y-4">
               <a 
                 href="tel:+4917624084651" 
-                className="flex items-center gap-3 text-gray-300 hover:text-brand-cyan transition-colors"
+                className="flex items-center gap-3 text-primary-foreground/70 hover:text-brand-cyan transition-colors group"
               >
-                <Phone className="h-4 w-4 text-brand-cyan" />
+                <div className="w-8 h-8 rounded-lg bg-primary-foreground/10 flex items-center justify-center group-hover:bg-brand-cyan/20 transition-colors">
+                  <Phone className="h-4 w-4 text-brand-cyan" />
+                </div>
                 <span>+49 176 24084651</span>
               </a>
               <a 
                 href="mailto:info@mitarbyte.de" 
-                className="flex items-center gap-3 text-gray-300 hover:text-brand-cyan transition-colors"
+                className="flex items-center gap-3 text-primary-foreground/70 hover:text-brand-cyan transition-colors group"
               >
-                <Mail className="h-4 w-4 text-brand-cyan" />
+                <div className="w-8 h-8 rounded-lg bg-primary-foreground/10 flex items-center justify-center group-hover:bg-brand-cyan/20 transition-colors">
+                  <Mail className="h-4 w-4 text-brand-cyan" />
+                </div>
                 <span>info@mitarbyte.de</span>
               </a>
-              <div className="flex items-start gap-3 text-gray-300">
-                <MapPin className="h-4 w-4 text-brand-cyan mt-0.5" />
+              <div className="flex items-center gap-3 text-primary-foreground/70">
+                <div className="w-8 h-8 rounded-lg bg-primary-foreground/10 flex items-center justify-center">
+                  <MapPin className="h-4 w-4 text-brand-cyan" />
+                </div>
                 <span>Deutschland</span>
               </div>
             </div>
           </div>
 
-          {/* Links */}
-          <div className="flex flex-col">
-            <h4 className="text-brand-cyan font-bold text-lg mb-4">Rechtliches</h4>
-            <div className="space-y-3">
-              <a 
-                href="#" 
-                className="block text-gray-300 hover:text-brand-cyan transition-colors"
-              >
-                Impressum
-              </a>
-              <a 
-                href="#" 
-                className="block text-gray-300 hover:text-brand-cyan transition-colors"
-              >
-                Datenschutz
-              </a>
-              <a 
-                href="#" 
-                className="block text-gray-300 hover:text-brand-cyan transition-colors"
-              >
-                AGB
-              </a>
+          {/* Legal */}
+          <div>
+            <h4 className="text-brand-cyan font-semibold mb-6">Rechtliches</h4>
+            <div className="space-y-4">
+              {['Impressum', 'Datenschutz', 'AGB'].map((item) => (
+                <a 
+                  key={item}
+                  href="#" 
+                  className="flex items-center gap-2 text-primary-foreground/70 hover:text-brand-cyan transition-colors group"
+                >
+                  <span>{item}</span>
+                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Trennlinie & Copyright */}
-        <div className="border-t border-gray-600 pt-8">
-          <p className="text-center text-gray-400 text-sm">
-            © {new Date().getFullYear()} mitarbyte. Alle Rechte vorbehalten.
+        {/* Bottom */}
+        <div className="pt-8 border-t border-primary-foreground/10">
+          <p className="text-center text-primary-foreground/50 text-sm">
+            © {currentYear} mitarbyte. Alle Rechte vorbehalten.
           </p>
         </div>
       </div>

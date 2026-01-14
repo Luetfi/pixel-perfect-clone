@@ -1,115 +1,126 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system based on mitarbyte brand guide
-   Colors:
-   - Primary Dark: #242736 (navy)
-   - Secondary Dark: #324359
-   - Accent Blue: #699db3
-   - Cyan/Turquoise: #3ff1ea (primary accent)
-   - Red Accent: #ec3736
-   - Gray: #bbbbbb
-   - White: #ffffff
+/* Design System - Clean & Minimalist
+   Primary focus on whitespace, typography hierarchy, and subtle depth
    
-   Fonts:
-   - Headlines: Nordique Pro Bold (fallback to system sans)
-   - Body: Quicksand
+   Colors:
+   - Primary Dark: #1a1a2e (deep navy)
+   - Accent: #3ff1ea (cyan - kept from brand)
+   - Text Primary: #1a1a2e
+   - Text Secondary: #64748b
+   - Background: #ffffff
+   - Surface: #f8fafc
+   - Border: #e2e8f0
 */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 228 21% 18%; /* #242736 */
+    --foreground: 234 43% 14%;
 
     --card: 0 0% 100%;
-    --card-foreground: 228 21% 18%;
+    --card-foreground: 234 43% 14%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 228 21% 18%;
+    --popover-foreground: 234 43% 14%;
 
-    /* Primary - Navy #242736 */
-    --primary: 228 21% 18%;
+    /* Primary - Deep Navy */
+    --primary: 234 43% 14%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Dark Blue #324359 */
-    --secondary: 216 28% 27%;
-    --secondary-foreground: 0 0% 100%;
+    /* Secondary - Slate */
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 234 43% 14%;
 
-    /* Muted - Gray #bbbbbb */
-    --muted: 0 0% 73%;
-    --muted-foreground: 228 21% 18%;
+    /* Muted - Light slate */
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    /* Accent - Cyan #3ff1ea */
+    /* Accent - Cyan */
     --accent: 178 85% 59%;
-    --accent-foreground: 228 21% 18%;
+    --accent-foreground: 234 43% 14%;
 
-    /* Destructive - Red #ec3736 */
-    --destructive: 0 83% 57%;
+    /* Destructive */
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 216 28% 27%;
-    --input: 0 0% 73%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
     --ring: 178 85% 59%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    /* Brand specific colors */
-    --brand-navy: 228 21% 18%;
+    /* Brand colors */
+    --brand-navy: 234 43% 14%;
     --brand-dark-blue: 216 28% 27%;
     --brand-blue: 200 32% 55%;
     --brand-cyan: 178 85% 59%;
-    --brand-red: 0 83% 57%;
-    --brand-gray: 0 0% 73%;
+    --brand-red: 0 84% 60%;
+    --brand-gray: 215 16% 47%;
+
+    /* Surface colors for depth */
+    --surface: 210 40% 98%;
+    --surface-hover: 210 40% 96%;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 228 21% 18%;
-    --sidebar-primary: 228 21% 18%;
+    --sidebar-foreground: 234 43% 14%;
+    --sidebar-primary: 234 43% 14%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 178 85% 59%;
-    --sidebar-accent-foreground: 228 21% 18%;
-    --sidebar-border: 216 28% 27%;
+    --sidebar-accent-foreground: 234 43% 14%;
+    --sidebar-border: 214 32% 91%;
     --sidebar-ring: 178 85% 59%;
   }
 
   .dark {
-    --background: 228 21% 18%;
+    --background: 234 43% 14%;
     --foreground: 0 0% 100%;
 
-    --card: 216 28% 27%;
+    --card: 216 28% 20%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 216 28% 27%;
+    --popover: 216 28% 20%;
     --popover-foreground: 0 0% 100%;
 
     --primary: 178 85% 59%;
-    --primary-foreground: 228 21% 18%;
+    --primary-foreground: 234 43% 14%;
 
-    --secondary: 200 32% 55%;
+    --secondary: 216 28% 27%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 216 28% 27%;
-    --muted-foreground: 0 0% 73%;
+    --muted-foreground: 215 16% 70%;
 
     --accent: 178 85% 59%;
-    --accent-foreground: 228 21% 18%;
+    --accent-foreground: 234 43% 14%;
 
-    --destructive: 0 83% 57%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 200 32% 55%;
+    --border: 216 28% 30%;
     --input: 216 28% 27%;
     --ring: 178 85% 59%;
 
-    --sidebar-background: 228 21% 18%;
+    --surface: 216 28% 18%;
+    --surface-hover: 216 28% 22%;
+
+    --sidebar-background: 234 43% 14%;
     --sidebar-foreground: 0 0% 100%;
     --sidebar-primary: 178 85% 59%;
-    --sidebar-primary-foreground: 228 21% 18%;
+    --sidebar-primary-foreground: 234 43% 14%;
     --sidebar-accent: 216 28% 27%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 200 32% 55%;
+    --sidebar-border: 216 28% 30%;
     --sidebar-ring: 178 85% 59%;
   }
 }
@@ -119,11 +130,86 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground font-quicksand;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    @apply font-semibold tracking-tight;
   }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl leading-[1.1];
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl leading-[1.15];
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl leading-[1.2];
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-cyan to-brand-blue bg-clip-text text-transparent;
+  }
+
+  .glass {
+    @apply bg-white/80 backdrop-blur-lg border border-white/20;
+  }
+
+  .card-elevated {
+    @apply bg-card rounded-2xl shadow-lg border border-border/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .card-subtle {
+    @apply bg-card rounded-xl border border-border/30 transition-all duration-200 hover:border-border;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32 px-4 md:px-6 lg:px-8;
+  }
+
+  .container-tight {
+    @apply max-w-5xl mx-auto;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/20 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/30;
+}
+
+/* Selection */
+::selection {
+  @apply bg-brand-cyan/30 text-foreground;
 }

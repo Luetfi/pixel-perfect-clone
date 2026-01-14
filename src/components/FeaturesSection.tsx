@@ -1,77 +1,106 @@
 import React from 'react';
 import { CustomButton } from './ui/CustomButton';
+import { motion } from 'framer-motion';
+import { ArrowRight, Clock, MessageCircle, Video, Shield, BookOpen, TrendingUp } from 'lucide-react';
 
 interface FeatureCardProps {
+  icon: React.ReactNode;
   title: string;
   description: string;
-  className?: string;
+  delay: number;
 }
 
-const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, className = "" }) => {
+const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, delay }) => {
   return (
-    <div className={`bg-white flex min-w-60 items-center gap-2.5 justify-center flex-1 shrink basis-[0%] px-[23px] border-black border-solid border-2 max-md:px-5 ${className}`}>
-      <div className="self-stretch flex min-w-60 w-[322px] flex-col justify-center my-auto">
-        <div className="font-bold leading-[1.3]">
-          {title}
-        </div>
-        <div className="font-normal leading-[31px] mt-2.5">
-          {description}
-        </div>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay }}
+      className="card-subtle p-8 hover:bg-muted/50"
+    >
+      <div className="w-12 h-12 rounded-xl bg-brand-cyan/10 flex items-center justify-center mb-5">
+        {icon}
       </div>
-    </div>
+      <h3 className="text-lg font-semibold text-foreground mb-3">
+        {title}
+      </h3>
+      <p className="text-muted-foreground leading-relaxed">
+        {description}
+      </p>
+    </motion.div>
   );
 };
 
 export const FeaturesSection: React.FC = () => {
+  const features = [
+    {
+      icon: <Clock className="w-6 h-6 text-brand-cyan" />,
+      title: "Ergebnisse in 4 Wochen",
+      description: "Ihr Team baut eigene KI‑Assistenten, die echte Arbeit abnehmen. Klare Schritte, klare Übungen, klare Ergebnisse."
+    },
+    {
+      icon: <MessageCircle className="w-6 h-6 text-brand-cyan" />,
+      title: "24/7 Betreuung",
+      description: "Ihr Trainer ist auch zwischen den Terminen für Fragen da und stellt sicher, dass wirklich alle mitkommen."
+    },
+    {
+      icon: <Video className="w-6 h-6 text-brand-cyan" />,
+      title: "Inhalte jederzeit nachholbar",
+      description: "Alle Webinare werden aufgezeichnet, damit Mitarbeitende Ausfälle unkompliziert nacharbeiten können."
+    },
+    {
+      icon: <Shield className="w-6 h-6 text-brand-cyan" />,
+      title: "DSGVO‑konforme KI",
+      description: "Mit Langdock als CompanyGPT sicher und unternehmenseigen."
+    },
+    {
+      icon: <BookOpen className="w-6 h-6 text-brand-cyan" />,
+      title: "Praxisnahe Formate",
+      description: "Mit Webinaren, Diskussionsrunden und Praxisaufgaben stellen wir sicher, dass das Team KI wirklich versteht."
+    },
+    {
+      icon: <TrendingUp className="w-6 h-6 text-brand-cyan" />,
+      title: "Spürbare Entlastung",
+      description: "Kunden berichten von 4 Stunden Entlastung pro Woche pro Mitarbeitendem."
+    }
+  ];
+
   return (
-    <section className="bg-white border flex w-full flex-col overflow-hidden items-center text-center justify-center px-[90px] py-20 border-black border-solid max-md:max-w-full max-md:px-5">
-      <div className="flex w-[1200px] max-w-full gap-8 justify-center">
-        <div className="flex min-w-60 w-[1200px] flex-col items-stretch justify-center max-md:max-w-full">
-          <div className="flex w-full flex-col items-stretch text-2xl text-black justify-center max-md:max-w-full">
-            <h2 className="text-[44px] font-semibold leading-[53px] self-center w-[748px] max-md:max-w-full">
-              Benefit Driven headline - how you do it as well as what makes you different
-            </h2>
-            <div className="flex w-full gap-[40px_48px] flex-wrap mt-12 max-md:max-w-full max-md:mt-10">
-              <FeatureCard
-                title="Ergebnisse in 4 Wochen"
-                description="Ihr Team baut eigene KI‑Assistenten, die echte Arbeit abnehmen. Klare Schritte, klare Übungen, klare Ergebnisse."
-                className="min-h-[320px] aspect-[1] p-8"
-              />
-              <FeatureCard
-                title="24/7 Betreuung"
-                description="Ihr Trainer ist auch zwischen den Terminen für Fragen da, geht auf individuelle Bedürfnisse ein und stellt sicher, dass wirklich alle mitkommen."
-                className="min-h-[320px] aspect-[1] p-8"
-              />
-              <FeatureCard
-                title="Inhalte jederzeit nachholbar"
-                description="Alle Webinare werden aufgezeichnet, damit Mitarbeitende Ausfälle oder Engpässe unkompliziert nacharbeiten können."
-                className="min-h-[320px] aspect-[1] p-8"
-              />
-            </div>
-            <div className="flex w-full gap-[40px_48px] flex-wrap mt-12 max-md:max-w-full max-md:mt-10">
-              <FeatureCard
-                title="DSGVO‑konforme KI"
-                description="Mit Langdock als CompanyGPT sicher und unternehmenseigen."
-                className="min-h-[320px] aspect-[1] p-8"
-              />
-              <FeatureCard
-                title="Webinare, Diskussionsrunden und Praxisaufgaben"
-                description="Mit verschiedenen Formaten stellen wir sicher, dass das Team KI wirklich versteht – und dauerhaft damit arbeiten kann."
-                className="min-h-[320px] aspect-[1] p-8"
-              />
-              <FeatureCard
-                title="Spürbare Entlastung"
-                description="Kunden berichten von 4 Stunden Entlastung pro Woche pro Mitarbeitendem."
-                className="min-h-[320px] aspect-[1] p-8"
-              />
-            </div>
-          </div>
-          <div className="self-center flex gap-4 text-xl text-white font-bold uppercase mt-12 max-md:mt-10">
-            <CustomButton variant="primary">
-              Kostenloses Erstgespräch
-            </CustomButton>
-          </div>
+    <section className="section-padding bg-background">
+      <div className="container-wide">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-foreground mb-4">
+            Was den KI-Kickstart besonders macht
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Praxisnah, begleitet und auf Ihre Bedürfnisse zugeschnitten
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((feature, index) => (
+            <FeatureCard key={index} {...feature} delay={index * 0.1} />
+          ))}
         </div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+          className="text-center mt-12"
+        >
+          <CustomButton variant="primary" size="lg" className="group">
+            Kostenloses Erstgespräch
+            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+          </CustomButton>
+        </motion.div>
       </div>
     </section>
   );
