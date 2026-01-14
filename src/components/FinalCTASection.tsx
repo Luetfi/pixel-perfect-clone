@@ -1,7 +1,6 @@
 import React from 'react';
-import { CustomButton } from './ui/CustomButton';
 import { motion } from 'framer-motion';
-import { Check, ArrowRight, Users, Zap, Shield, Play } from 'lucide-react';
+import { Check, Users, Zap, Shield, Calendar } from 'lucide-react';
 
 export const FinalCTASection: React.FC = () => {
   const benefits = [
@@ -11,7 +10,7 @@ export const FinalCTASection: React.FC = () => {
   ];
 
   return (
-    <section className="section-padding bg-muted/30">
+    <section id="erstgespraech" className="section-padding bg-muted/30">
       <div className="container-wide">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Content */}
@@ -36,7 +35,7 @@ export const FinalCTASection: React.FC = () => {
               Wenn Sie zeitnah starten wollen, sichern Sie sich jetzt einen der freien Termine.
             </p>
 
-            <div className="space-y-4 mb-8">
+            <div className="space-y-4">
               {benefits.map((benefit, index) => (
                 <motion.div
                   key={index}
@@ -53,30 +52,34 @@ export const FinalCTASection: React.FC = () => {
                 </motion.div>
               ))}
             </div>
-
-            <CustomButton variant="primary" size="lg" className="group">
-              Kostenloses Erstgespräch buchen
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </CustomButton>
           </motion.div>
 
-          {/* Visual */}
+          {/* Calendar Placeholder */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-muted to-muted/50 border border-border/50 shadow-xl overflow-hidden">
-              <div className="h-full flex items-center justify-center p-8">
+            <div className="rounded-2xl bg-card border border-border shadow-xl overflow-hidden">
+              <div className="p-6 border-b border-border bg-muted/50">
+                <h3 className="text-xl font-semibold text-foreground">Termin buchen</h3>
+                <p className="text-sm text-muted-foreground mt-1">Wählen Sie einen passenden Termin für Ihr Erstgespräch</p>
+              </div>
+              <div className="aspect-[4/3] flex items-center justify-center p-8 bg-gradient-to-br from-muted/30 to-muted/10">
                 <div className="text-center">
-                  <div className="w-20 h-20 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center mx-auto mb-4">
-                    <Play className="w-8 h-8 text-brand-cyan" />
+                  <div className="w-16 h-16 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center mx-auto mb-4">
+                    <Calendar className="w-8 h-8 text-brand-cyan" />
                   </div>
-                  <p className="text-muted-foreground font-medium">Visualisierung / Bild</p>
+                  <p className="text-muted-foreground font-medium">GoHighLevel Kalender</p>
                   <p className="text-sm text-muted-foreground/70 mt-2 max-w-xs">
-                    Von Unsicherheit zu klarer Handlungsfähigkeit
+                    Hier wird der GoHighLevel Buchungskalender eingebettet
                   </p>
+                  <div className="mt-4 p-3 rounded-lg bg-muted/50 border border-border/50">
+                    <code className="text-xs text-muted-foreground">
+                      &lt;iframe src="ghl-calendar-url"&gt;&lt;/iframe&gt;
+                    </code>
+                  </div>
                 </div>
               </div>
             </div>

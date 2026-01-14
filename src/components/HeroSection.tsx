@@ -47,10 +47,12 @@ export const HeroSection: React.FC = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
-              <CustomButton variant="primary" size="lg" className="group">
-                Kostenloses Erstgespräch
-                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </CustomButton>
+              <a href="#erstgespraech">
+                <CustomButton variant="primary" size="lg" className="group">
+                  Kostenloses Erstgespräch
+                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </CustomButton>
+              </a>
             </div>
 
             <p className="text-sm text-muted-foreground">

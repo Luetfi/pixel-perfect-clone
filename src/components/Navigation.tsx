@@ -27,9 +27,11 @@ export const Navigation: React.FC = () => {
               </div>
               +49 1512 2878503
             </a>
-            <CustomButton variant="primary" size="sm">
-              Erstgespräch buchen
-            </CustomButton>
+            <a href="#erstgespraech">
+              <CustomButton variant="primary" size="sm">
+                Erstgespräch buchen
+              </CustomButton>
+            </a>
           </div>
         </div>
 
@@ -48,9 +50,11 @@ export const Navigation: React.FC = () => {
             >
               <Phone className="w-5 h-5 text-brand-cyan" />
             </a>
-            <CustomButton variant="primary" size="sm">
-              Erstgespräch
-            </CustomButton>
+            <a href="#erstgespraech">
+              <CustomButton variant="primary" size="sm">
+                Erstgespräch
+              </CustomButton>
+            </a>
           </div>
         </div>
       </nav>
