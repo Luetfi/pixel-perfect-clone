@@ -107,10 +107,12 @@ export const TeamSection: React.FC = () => {
           transition={{ delay: 0.4 }}
           className="text-center mt-16"
         >
-          <CustomButton variant="primary" size="lg" className="group">
-            Kostenloses Erstgespräch
-            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </CustomButton>
+          <a href="#erstgespraech">
+            <CustomButton variant="primary" size="lg" className="group">
+              Kostenloses Erstgespräch
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </CustomButton>
+          </a>
         </motion.div>
       </div>
     </section>
