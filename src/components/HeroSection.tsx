@@ -51,10 +51,6 @@ export const HeroSection: React.FC = () => {
                 Kostenloses Erstgespräch
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </CustomButton>
-              <CustomButton variant="outline" size="lg" className="group">
-                <Play className="w-5 h-5" />
-                Demo ansehen
-              </CustomButton>
             </div>
 
             <p className="text-sm text-muted-foreground">
