@@ -10,9 +10,13 @@ export const Navigation: React.FC = () => {
       <nav className="flex w-full items-center justify-center px-4 md:px-6 py-4">
         {/* Desktop Layout */}
         <div className="hidden md:flex w-full max-w-7xl items-center justify-between">
-          <div className="flex items-center">
+          <a 
+            href="#" 
+            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            className="flex items-center"
+          >
             <img src={logo} alt="mitarbyte - Mitarbeit von morgen" className="h-14" />
-          </div>
+          </a>
           <div className="flex items-center gap-6">
             <a 
               href="tel:+4915122878503"
@@ -31,7 +35,12 @@ export const Navigation: React.FC = () => {
 
         {/* Mobile Layout */}
         <div className="flex md:hidden w-full items-center justify-between">
-          <img src={icon} alt="mitarbyte" className="h-10" />
+          <a 
+            href="#" 
+            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+          >
+            <img src={icon} alt="mitarbyte" className="h-10" />
+          </a>
           <div className="flex items-center gap-3">
             <a 
               href="tel:+4915122878503"
