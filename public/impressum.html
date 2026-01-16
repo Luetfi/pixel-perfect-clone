@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum - mitarbyte</title>
+  <meta name="description" content="Impressum der mitarbyte GmbH - KI-Kickstart für Hausverwaltungen">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --background: #ffffff;
+      --foreground: #1a1a2e;
+      --card: #ffffff;
+      --primary: #1a1a2e;
+      --primary-foreground: #ffffff;
+      --muted: #f1f5f9;
+      --muted-foreground: #64748b;
+      --border: #e2e8f0;
+      --brand-cyan: #3ff1ea;
+    }
+    
+    html { scroll-behavior: smooth; }
+    
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    
+    main, footer {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+    }
+    
+    header.header {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    
+    h1 { font-size: clamp(2.25rem, 5vw, 3.75rem); }
+    h2 { font-size: clamp(1.875rem, 4vw, 2.5rem); }
+    h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+    
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; height: auto; }
+    
+    .container-tight { max-width: 72rem; margin: 0 auto; padding-left: 1.5rem; padding-right: 1.5rem; }
+    .section-padding { padding: 4rem 1.5rem; }
+    @media (min-width: 768px) { .section-padding { padding: 6rem 2rem; } }
+    @media (min-width: 1024px) { .section-padding { padding: 8rem 3rem; } }
+    @media (min-width: 1440px) { 
+      .container-tight { max-width: 80rem; padding-left: 3rem; padding-right: 3rem; }
+    }
+    
+    .text-center { text-align: center; }
+    .text-brand-cyan { color: var(--brand-cyan); }
+    .text-muted { color: var(--muted-foreground); }
+    
+    .flex { display: flex; }
+    .flex-col { flex-direction: column; }
+    .items-center { align-items: center; }
+    .justify-center { justify-content: center; }
+    .justify-between { justify-content: space-between; }
+    .gap-3 { gap: 0.75rem; }
+    .gap-4 { gap: 1rem; }
+    .gap-6 { gap: 1.5rem; }
+    
+    .mb-2 { margin-bottom: 0.5rem; }
+    .mb-4 { margin-bottom: 1rem; }
+    .mb-6 { margin-bottom: 1.5rem; }
+    .mb-8 { margin-bottom: 2rem; }
+    
+    .w-full { width: 100%; }
+    
+    .leading-relaxed { line-height: 1.625; }
+    .font-medium { font-weight: 500; }
+    .font-semibold { font-weight: 600; }
+    .text-sm { font-size: 0.875rem; }
+    .text-lg { font-size: 1.125rem; }
+    
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background-color: var(--brand-cyan);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 0.75rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-primary.btn-sm { padding: 0.625rem 1.25rem; font-size: 0.875rem; }
+    .btn-primary.btn-lg { padding: 1.125rem 2.5rem; font-size: 1.125rem; }
+    
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+      width: 100%;
+    }
+    .header nav {
+      display: flex;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+    @media (min-width: 768px) { .header nav { padding: 1rem 3rem; } }
+    @media (min-width: 1024px) { .header nav { padding: 1rem 4rem; } }
+    @media (min-width: 1440px) { .header nav { padding: 1rem 5rem; } }
+    .header .phone-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--muted-foreground);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .header .phone-link:hover { color: var(--foreground); }
+    .header .phone-icon {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 9999px;
+      background-color: rgba(63, 241, 234, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .header .phone-icon svg { width: 1rem; height: 1rem; color: var(--brand-cyan); }
+    
+    .desktop-only { display: none; }
+    .mobile-only { display: flex; }
+    @media (min-width: 768px) {
+      .desktop-only { display: flex; }
+      .mobile-only { display: none; }
+    }
+    
+    /* Impressum Content */
+    .impressum-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .impressum-content { padding: 6rem 2rem; }
+    }
+    
+    .impressum-content h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 3rem;
+      color: var(--foreground);
+    }
+    
+    .impressum-section {
+      margin-bottom: 2.5rem;
+    }
+    
+    .impressum-section h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--brand-cyan);
+      margin-bottom: 1rem;
+    }
+    
+    .impressum-section p {
+      color: var(--foreground);
+      line-height: 1.8;
+      margin-bottom: 0.5rem;
+    }
+    
+    .impressum-section a {
+      color: var(--brand-cyan);
+      transition: opacity 0.2s;
+    }
+    .impressum-section a:hover {
+      opacity: 0.8;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary) 0%, #354259 100%);
+      border-radius: 1.5rem;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section .decorative {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(48px);
+      background-color: rgba(63, 241, 234, 0.1);
+    }
+    .cta-section .decorative.top-right { top: 0; right: 0; width: 12rem; height: 12rem; }
+    .cta-section .decorative.bottom-left { bottom: 0; left: 0; width: 10rem; height: 10rem; }
+    .cta-section h2 {
+      color: var(--primary-foreground);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+    .cta-section p {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    
+    /* Footer */
+    .footer { background-color: var(--primary); color: var(--primary-foreground); margin-bottom: 0 !important; padding-bottom: 0 !important; }
+    .footer a { color: rgba(255, 255, 255, 0.7); transition: color 0.2s; }
+    .footer a:hover { color: var(--brand-cyan); }
+    .footer .contact-icon {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.5rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s;
+    }
+    .footer .contact-icon:hover { background-color: rgba(63, 241, 234, 0.2); }
+    .footer .contact-icon svg { width: 1rem; height: 1rem; color: var(--brand-cyan); }
+    
+    .container-wide { max-width: 90rem; margin: 0 auto; padding-left: 1.5rem; padding-right: 1.5rem; }
+    @media (min-width: 1440px) { 
+      .container-wide { max-width: 100rem; padding-left: 3rem; padding-right: 3rem; }
+    }
+    
+    .grid { display: grid; }
+    .grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+    @media (min-width: 768px) { 
+      .md-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) { 
+      .lg-grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+    }
+    
+    html, body { margin-bottom: 0 !important; padding-bottom: 0 !important; }
+    footer.footer { 
+      margin-bottom: -100px; 
+      padding-bottom: 100px !important; 
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <nav>
+      <div class="desktop-only w-full items-center justify-between">
+        <a href="gohighlevel-export.html">
+          <img src="https://storage.googleapis.com/msgsndr/ZaSffp0AiybiPIhT5szY/media/6966645b4d514862d66fab07.png" alt="mitarbyte - Mitarbeit von morgen" style="height:3rem;width:auto;">
+        </a>
+        <div class="flex items-center gap-6">
+          <a href="tel:+4915122878503" class="phone-link">
+            <div class="phone-icon"><i data-lucide="phone"></i></div>
+            +49 1512 2878503
+          </a>
+          <a href="gohighlevel-export.html#erstgespraech" class="btn-primary btn-sm">Erstgespräch buchen</a>
+        </div>
+      </div>
+      <div class="mobile-only w-full items-center justify-between">
+        <a href="gohighlevel-export.html">
+          <img src="https://storage.googleapis.com/msgsndr/ZaSffp0AiybiPIhT5szY/media/6966645b4d514862d66fab07.png" alt="mitarbyte" style="height:2.25rem;width:auto;">
+        </a>
+        <div class="flex items-center gap-3">
+          <a href="tel:+4915122878503" class="phone-icon" style="width:2.5rem;height:2.5rem;background:var(--muted);">
+            <i data-lucide="phone" style="width:1.25rem;height:1.25rem;"></i>
+          </a>
+          <a href="gohighlevel-export.html#erstgespraech" class="btn-primary btn-sm">Erstgespräch</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="impressum-content">
+      <h1>Impressum</h1>
+      
+      <div class="impressum-section">
+        <h2>mitarbyte GmbH</h2>
+        <p>Am Brunnenhof 9</p>
+        <p>82256 Fürstenfeldbruck</p>
+        <p>Deutschland</p>
+      </div>
+      
+      <div class="impressum-section">
+        <h2>Handelsregister</h2>
+        <p>Handelsregister: HRB 301776</p>
+        <p>Registergericht: Amtsgericht Fürstenfeldbruck</p>
+      </div>
+      
+      <div class="impressum-section">
+        <h2>Umsatzsteuer-ID</h2>
+        <p>Umsatzsteuer-Identifikationsnummer gem. § 27a UStG: TBA</p>
+      </div>
+      
+      <div class="impressum-section">
+        <h2>Vertretungsberechtigter Geschäftsführer</h2>
+        <p>Victor Reisenauer</p>
+      </div>
+      
+      <div class="impressum-section">
+        <h2>Kontakt</h2>
+        <p>E-Mail: <a href="mailto:office@mitarbyte.com">office(at)mitarbyte.com</a></p>
+        <p>Telefon: <a href="tel:+4915122878503">+49 151 2287 8503</a></p>
+      </div>
+      
+      <div class="impressum-section">
+        <h2>Inhaltlich Verantwortlicher</h2>
+        <p>Inhaltlich Verantwortlicher gem. § 18 Abs. 2 MStV: Victor Reisenauer</p>
+      </div>
+      
+      <!-- CTA Section -->
+      <div class="cta-section">
+        <div class="decorative top-right"></div>
+        <div class="decorative bottom-left"></div>
+        <h2>KI-gestützte Arbeitsweise in nur wenigen Wochen</h2>
+        <p>Gehen Sie den ersten Schritt und buchen Sie ein Erstgespräch.</p>
+        <a href="gohighlevel-export.html#erstgespraech" class="btn-primary btn-lg">
+          Erstgespräch buchen
+          <i data-lucide="arrow-right" style="width:1.25rem;height:1.25rem;"></i>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="section-padding" style="padding-bottom:1.5rem;">
+      <div class="container-wide">
+        <div class="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-4 gap-8 mb-8" style="gap:3rem;grid-template-columns:2fr 1fr 1fr;">
+          <div>
+            <a href="gohighlevel-export.html" style="display:inline-block;margin-bottom:1.5rem;">
+              <img src="https://storage.googleapis.com/msgsndr/ZaSffp0AiybiPIhT5szY/media/6966645b4d514862d66fab07.png" alt="mitarbyte - Mitarbeit von morgen" style="height:2.5rem;width:auto;filter:brightness(0) invert(1);">
+            </a>
+            <p style="color:rgba(255,255,255,0.7);line-height:1.625;max-width:28rem;">Wir gestalten mit Immobiliendienstleistern schon heute die Arbeitsweise von morgen.</p>
+          </div>
+          <div>
+            <h4 style="color:var(--brand-cyan);font-weight:600;margin-bottom:1.5rem;">Kontakt</h4>
+            <div style="display:flex;flex-direction:column;gap:1rem;">
+              <a href="tel:+4915122878503" class="flex items-center gap-3"><div class="contact-icon"><i data-lucide="phone"></i></div><span>+49 151 2287 8503</span></a>
+              <a href="mailto:office@mitarbyte.com" class="flex items-center gap-3"><div class="contact-icon"><i data-lucide="mail"></i></div><span>office@mitarbyte.com</span></a>
+              <div class="flex items-center gap-3" style="color:rgba(255,255,255,0.7);"><div class="contact-icon"><i data-lucide="map-pin"></i></div><span>Deutschland</span></div>
+            </div>
+          </div>
+          <div>
+            <h4 style="color:var(--brand-cyan);font-weight:600;margin-bottom:1.5rem;">Rechtliches</h4>
+            <div style="display:flex;flex-direction:column;gap:1rem;">
+              <a href="impressum.html">Impressum</a>
+              <a href="datenschutz.html">Datenschutz</a>
+            </div>
+          </div>
+        </div>
+        <div style="padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
+          <p class="text-center" style="color:rgba(255,255,255,0.5);font-size:0.875rem;">Copyright mitarbyte GmbH © 2025. Alle Rechte vorbehalten.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

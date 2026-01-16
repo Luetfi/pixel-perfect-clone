@@ -287,11 +287,11 @@
     }
     .header .phone-icon svg { width: 1rem; height: 1rem; color: var(--brand-cyan); }
     
-    .desktop-only { display: none; }
-    .mobile-only { display: flex; }
+    .desktop-only { display: none !important; }
+    .mobile-only { display: flex !important; }
     @media (min-width: 768px) {
-      .desktop-only { display: flex; }
-      .mobile-only { display: none; }
+      .desktop-only { display: flex !important; }
+      .mobile-only { display: none !important; }
     }
     
     /* Hero */
@@ -474,35 +474,100 @@
     }
     
     @media (max-width: 767px) { .hero .visual-section { display: none; } }
+    
+    /* Modal Styles */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      overflow-y: auto;
+      padding: 2rem 1rem;
+    }
+    .modal-overlay.open { display: flex; justify-content: center; align-items: flex-start; }
+    .modal-content {
+      background-color: var(--background);
+      border-radius: 1rem;
+      max-width: 800px;
+      width: 100%;
+      margin: 2rem auto;
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .modal-header h2 { margin: 0; font-size: 1.5rem; }
+    .modal-close {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 9999px;
+      background: var(--muted);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .modal-close:hover { background: var(--brand-cyan); }
+    .modal-close svg { width: 1.25rem; height: 1.25rem; }
+    .modal-body { padding: 2rem; }
+    .modal-body h3 { color: var(--brand-cyan); font-size: 1.125rem; margin-bottom: 0.75rem; margin-top: 1.5rem; }
+    .modal-body h3:first-child { margin-top: 0; }
+    .modal-body p { color: var(--foreground); line-height: 1.8; margin-bottom: 0.5rem; }
+    .modal-body a { color: var(--brand-cyan); }
+    .modal-cta {
+      background: linear-gradient(135deg, var(--primary) 0%, #354259 100%);
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .modal-cta h3 { color: var(--primary-foreground) !important; margin-bottom: 0.5rem !important; }
+    .modal-cta p { color: rgba(255,255,255,0.7) !important; margin-bottom: 1.5rem !important; }
+    .modal-cta .btn-primary { 
+      background-color: var(--brand-cyan) !important; 
+      color: var(--primary) !important; 
+    }
+    .modal-cta .btn-primary svg { color: var(--primary) !important; }
   </style>
 </head>
 <body>
   <!-- HEADER -->
   <header class="header">
     <nav>
-      <div class="desktop-only w-full items-center justify-between">
-        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+      <div class="desktop-only w-full items-center justify-between" style="display:none;align-items:center;">
+        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" style="display:flex;align-items:center;">
           <!-- LOGO: Ersetzen Sie die URL mit Ihrem hochgeladenen Logo -->
-          <img src="https://storage.googleapis.com/msgsndr/ZaSffp0AiybiPIhT5szY/media/6966645b4d514862d66fab07.png" alt="mitarbyte - Mitarbeit von morgen" style="height:3rem;width:auto;">
+          <img src="https://storage.googleapis.com/msgsndr/ZaSffp0AiybiPIhT5szY/media/6966645b4d514862d66fab07.png" alt="mitarbyte - Mitarbeit von morgen" style="height:4rem;width:auto;">
         </a>
-        <div class="flex items-center gap-6">
-          <a href="tel:+4915122878503" class="phone-link">
-            <div class="phone-icon"><i data-lucide="phone"></i></div>
+        <div class="flex items-center gap-6" style="align-items:center;">
+          <a href="tel:+4915122878503" class="phone-link" style="align-items:center;font-size:1rem;">
+            <div class="phone-icon" style="width:2.5rem;height:2.5rem;"><i data-lucide="phone" style="width:1.25rem;height:1.25rem;"></i></div>
             +49 1512 2878503
           </a>
-          <a href="#erstgespraech" class="btn-primary btn-sm">Erstgespräch buchen</a>
+          <a href="#erstgespraech" class="btn-primary" style="display:inline-flex;align-items:center;padding:0.875rem 1.75rem;font-size:1rem;">Erstgespräch buchen</a>
         </div>
       </div>
-      <div class="mobile-only w-full items-center justify-between">
-        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+      <div class="mobile-only w-full items-center justify-between" style="align-items:center;">
+        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" style="display:flex;align-items:center;">
           <!-- LOGO Mobile: Ersetzen Sie die URL mit Ihrem hochgeladenen Logo -->
-          <img src="https://storage.googleapis.com/msgsndr/ZaSffp0AiybiPIhT5szY/media/6966645b4d514862d66fab07.png" alt="mitarbyte" style="height:2.25rem;width:auto;">
+          <img src="https://storage.googleapis.com/msgsndr/ZaSffp0AiybiPIhT5szY/media/6966645b4d514862d66fab07.png" alt="mitarbyte" style="height:2.75rem;width:auto;">
         </a>
-        <div class="flex items-center gap-3">
-          <a href="tel:+4915122878503" class="phone-icon" style="width:2.5rem;height:2.5rem;background:var(--muted);">
-            <i data-lucide="phone" style="width:1.25rem;height:1.25rem;"></i>
+        <div class="flex items-center gap-3" style="align-items:center;">
+          <a href="tel:+4915122878503" class="phone-icon" style="width:2.75rem;height:2.75rem;background:var(--muted);display:flex;align-items:center;justify-content:center;">
+            <i data-lucide="phone" style="width:1.5rem;height:1.5rem;"></i>
           </a>
-          <a href="#erstgespraech" class="btn-primary btn-sm">Erstgespräch</a>
+          <a href="#erstgespraech" class="btn-primary" style="display:inline-flex;align-items:center;padding:0.75rem 1.25rem;font-size:0.9375rem;">Erstgespräch</a>
         </div>
       </div>
     </nav>
@@ -521,7 +586,7 @@
               <span class="dot"></span>
               <span>Mit 12+ Verwaltungen erfolgreich durchgeführt</span>
             </div>
-            <h1 class="mb-6">In 4 Wochen von Systemchaos zu <span>klarer Struktur</span> – mit KI, die wirklich entlastet</h1>
+            <h1 class="mb-6">In<span> 4 Wochen</span> zur KI-gehebelten Hausverwaltung </h1>
             <p class="text-lg text-muted leading-relaxed mb-8" style="max-width:36rem;">
               Wir befähigen Ihre Mitarbeitenden, KI sicher und souverän zu nutzen. Das Ergebnis: weniger Überlastung, weniger manuelle Aufgaben, mehr Stabilität im Alltag.
             </p>
@@ -644,7 +709,7 @@
     <section class="section-padding" style="background:rgba(210,220,230,0.3);">
       <div class="container-tight">
         <div class="text-center" style="max-width:48rem;margin:0 auto;">
-          <h2 class="mb-6">Fühlen Sie sich gefangen im reaktiven Tagesgeschäft, ohne klare Struktur?</h2>
+          <h2 class="mb-6">Fühlen Sie sich gefangen im reaktiven Tagesgeschäft, ohne klare Struktur und ohne Zeit für das Wesentliche?</h2>
           <p class="text-lg text-muted leading-relaxed mb-6">Jeden Tag kämpfen Sie gegen dieselben Engpässe: übervolle Postfächer, fragmentierte Systeme, ständige Unterbrechungen und ein Team, das kaum noch hinterherkommt.</p>
           <p class="text-lg text-muted leading-relaxed mb-8">Wir zeigen Ihnen, wie Sie mit einer modernen, KI‑augmentierten Arbeitsweise Ordnung schaffen, Routinen automatisieren und Ihrem Team spürbar mehr Stabilität und Zeit zurückgeben – ohne komplizierte Umstellungen.</p>
           <a href="#erstgespraech" class="btn-primary btn-lg">Kostenloses Erstgespräch <i data-lucide="arrow-right" style="width:1.25rem;height:1.25rem;"></i></a>
@@ -665,7 +730,7 @@
               <p class="text-muted text-sm font-medium">Bild / Video</p>
             </div>
             <div>
-              <span class="text-sm font-semibold text-brand-cyan" style="text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:0.75rem;">Zeitersparnis</span>
+              <span class="text-sm font-semibold text-brand-cyan" style="text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:0.75rem;">Sofort spürbare Entlastung im Team.</span>
               <h3 style="font-size:1.5rem;font-weight:600;margin-bottom:1rem;line-height:1.2;">So gewinnen Sie jede Woche mehrere Stunden</h3>
               <p class="text-muted leading-relaxed" style="font-size:0.95rem;">Kunden berichten im Durchschnitt von rund 4 Stunden Entlastung pro Woche pro Mitarbeitendem. KI übernimmt Schreiben, Recherchieren, Auswerten und viele der kleinen Aufgaben, die heute wertvolle Zeit blockieren.</p>
             </div>
@@ -676,9 +741,9 @@
         <div class="card-elevated p-8" style="margin-bottom:2rem;">
           <div class="grid grid-cols-1 lg-grid-cols-2 gap-8 lg-gap-20 items-center">
             <div style="order:1;">
-              <span class="text-sm font-semibold text-brand-cyan" style="text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:0.75rem;">Team-Befähigung</span>
-              <h3 style="font-size:1.5rem;font-weight:600;margin-bottom:1rem;line-height:1.2;">So befähigen Sie ihr Team KI sicher und produktiv zu nutzen</h3>
-              <p class="text-muted leading-relaxed" style="font-size:0.95rem;">Wir bauen Unsicherheiten, Blockaden und Berührungsängste systematisch ab – egal ob technikaffin oder „Urgestein". Durch praxisnahe Übungen, geführte Aufgaben und echte Beispiele entsteht ein souveräner und nachhaltiger Umgang mit KI.</p>
+              <span class="text-sm font-semibold text-brand-cyan" style="text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:0.75rem;">Souverän mit KI arbeiten - ohne Überforderung</span>
+              <h3 style="font-size:1.5rem;font-weight:600;margin-bottom:1rem;line-height:1.2;">So befähigen Sie ihr Team KI sicher, bewusstund produktiv zu nutzen</h3>
+              <p class="text-muted leading-relaxed" style="font-size:0.95rem;">Wir bauen Unsicherheiten, Blockaden und Berührungsängste systematisch ab – egal ob technikaffin oder „Urgestein". Durch praxisnahe Übungen, geführte Aufgaben und echte Beispiele entsteht ein souveräner und nachhaltiger Umgang mit KI. Das Ergebnis: weniger Stress, weniger manuelle Arbeit und ein Team, das gemeinsam vorankommt - statt sich abgehängt zu fühlen.</p>
             </div>
             <div class="image-placeholder" style="aspect-ratio:16/10;border-radius:0.75rem;order:2;">
               <div class="icon-box icon-box-lg mb-3" style="border:1px solid rgba(63,241,234,0.2);background:transparent;">
@@ -699,9 +764,9 @@
               <p class="text-muted text-sm font-medium">Bild / Video</p>
             </div>
             <div>
-              <span class="text-sm font-semibold text-brand-cyan" style="text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:0.75rem;">Transformation</span>
-              <h3 style="font-size:1.5rem;font-weight:600;margin-bottom:1rem;line-height:1.2;">So legen Sie das Fundament für eine moderne, KI‑gestützte Organisation</h3>
-              <p class="text-muted leading-relaxed" style="font-size:0.95rem;">Wir etablieren mit Ihnen ein funktionierendes KI‑Grundgerüst: ein UnternehmensGPT für KI-Assistenten, ein sicherer Umgang im Team und eine tragfähige KI-Infrastruktur für alles, was danach kommt.</p>
+              <span class="text-sm font-semibold text-brand-cyan" style="text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:0.75rem;">Dream outcome Summary</span>
+              <h3 style="font-size:1.5rem;font-weight:600;margin-bottom:1rem;line-height:1.2;">So legen Sie in 4 Wochendas Fundament für eine moderne, KI‑gestützte Organisation</h3>
+              <p class="text-muted leading-relaxed" style="font-size:0.95rem;">Wir etablieren mit Ihnen ein funktionierendes KI‑Grundgerüst: ein UnternehmensGPT für KI-Assistenten, ein sicherer Umgang im Team und eine tragfähige KI-Infrastruktur für alles, was danach kommt. Der perfekte Startpunkt, um Ihre Verwaltung nachhaltig zu modernisieren.</p>
             </div>
           </div>
         </div>
@@ -709,13 +774,13 @@
     </section>
 
     <!-- STATS -->
-    <section class="section-padding stats-section">
+    <section class="section-padding stats-section" style="padding-top:4rem;padding-bottom:4rem;">
       <div class="container-wide">
-        <div class="text-center mb-16">
+        <div class="text-center mb-8">
           <h2 class="mb-4" style="color:var(--primary-foreground);">Zahlen, die für sich sprechen</h2>
           <p class="text-lg" style="color:rgba(255,255,255,0.7);max-width:42rem;margin:0 auto;">Messbare Ergebnisse für Ihr Team</p>
         </div>
-        <div class="grid grid-cols-1 md-grid-cols-4 gap-8 mb-16" style="grid-template-columns:repeat(2,1fr);">
+        <div class="grid gap-8 mb-8" style="grid-template-columns:repeat(4,1fr);">
           <div class="text-center"><p class="stat-value mb-2">12+</p><p style="color:rgba(255,255,255,0.7);">Verwaltungen erfolgreich betreut</p></div>
           <div class="text-center"><p class="stat-value mb-2">4h+</p><p style="color:rgba(255,255,255,0.7);">Zeitersparnis pro Woche/Person</p></div>
           <div class="text-center"><p class="stat-value mb-2">100%</p><p style="color:rgba(255,255,255,0.7);">Zufriedenheitsgarantie</p></div>
@@ -732,13 +797,13 @@
           <h2 class="mb-4">Was den KI-Kickstart besonders macht</h2>
           <p class="text-lg text-muted max-w-2xl mx-auto">Praxisnah, begleitet und auf Ihre Bedürfnisse zugeschnitten</p>
         </div>
-        <div class="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-3 gap-6" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
-          <div class="card-subtle p-8"><div class="icon-box mb-4"><i data-lucide="clock" style="width:1.5rem;height:1.5rem;color:var(--brand-cyan);"></i></div><h3 class="text-lg font-semibold mb-3">Ergebnisse in 4 Wochen</h3><p class="text-muted leading-relaxed">Ihr Team baut eigene KI‑Assistenten, die echte Arbeit abnehmen.</p></div>
-          <div class="card-subtle p-8"><div class="icon-box mb-4"><i data-lucide="message-circle" style="width:1.5rem;height:1.5rem;color:var(--brand-cyan);"></i></div><h3 class="text-lg font-semibold mb-3">24/7 Betreuung</h3><p class="text-muted leading-relaxed">Ihr Trainer ist auch zwischen den Terminen für Fragen da.</p></div>
-          <div class="card-subtle p-8"><div class="icon-box mb-4"><i data-lucide="video" style="width:1.5rem;height:1.5rem;color:var(--brand-cyan);"></i></div><h3 class="text-lg font-semibold mb-3">Inhalte jederzeit nachholbar</h3><p class="text-muted leading-relaxed">Alle Webinare werden aufgezeichnet.</p></div>
+        <div class="grid gap-6" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="card-subtle p-8"><div class="icon-box mb-4"><i data-lucide="clock" style="width:1.5rem;height:1.5rem;color:var(--brand-cyan);"></i></div><h3 class="text-lg font-semibold mb-3">Ergebnisse in 4 Wochen</h3><p class="text-muted leading-relaxed">Ihr Team baut eigene KI‑Assistenten, die echte Arbeit abnehmen. Klare Schritte, klare Übungen, klare Ergebnisse.</p></div>
+          <div class="card-subtle p-8"><div class="icon-box mb-4"><i data-lucide="message-circle" style="width:1.5rem;height:1.5rem;color:var(--brand-cyan);"></i></div><h3 class="text-lg font-semibold mb-3">24/7 Betreuung</h3><p class="text-muted leading-relaxed">Ihr Trainer ist auch zwischen den Terminen für Fragen da, geht auf individuelle Bedürfnisse ein und stellt sicher, dass wirklich alle mitkommen.</p></div>
+          <div class="card-subtle p-8"><div class="icon-box mb-4"><i data-lucide="video" style="width:1.5rem;height:1.5rem;color:var(--brand-cyan);"></i></div><h3 class="text-lg font-semibold mb-3">Inhalte jederzeit nachholbar</h3><p class="text-muted leading-relaxed">Alle Webinare werden aufgezeichnet, damit Mitarbeitende Ausfälle oder Engpässe unkompliziert nacharbeiten können.</p></div>
           <div class="card-subtle p-8"><div class="icon-box mb-4"><i data-lucide="shield" style="width:1.5rem;height:1.5rem;color:var(--brand-cyan);"></i></div><h3 class="text-lg font-semibold mb-3">DSGVO‑konforme KI</h3><p class="text-muted leading-relaxed">Mit Langdock als CompanyGPT sicher und unternehmenseigen.</p></div>
-          <div class="card-subtle p-8"><div class="icon-box mb-4"><i data-lucide="book-open" style="width:1.5rem;height:1.5rem;color:var(--brand-cyan);"></i></div><h3 class="text-lg font-semibold mb-3">Praxisnahe Formate</h3><p class="text-muted leading-relaxed">Mit Webinaren, Diskussionsrunden und Praxisaufgaben.</p></div>
-          <div class="card-subtle p-8"><div class="icon-box mb-4"><i data-lucide="trending-up" style="width:1.5rem;height:1.5rem;color:var(--brand-cyan);"></i></div><h3 class="text-lg font-semibold mb-3">Spürbare Entlastung</h3><p class="text-muted leading-relaxed">4 Stunden Entlastung pro Woche pro Mitarbeitendem.</p></div>
+          <div class="card-subtle p-8"><div class="icon-box mb-4"><i data-lucide="book-open" style="width:1.5rem;height:1.5rem;color:var(--brand-cyan);"></i></div><h3 class="text-lg font-semibold mb-3">Webinare, Diskussionsrunden und Praxisaufgaben</h3><p class="text-muted leading-relaxed">Mit verschiedenen Formaten stellen wir sicher, dass das Team KI wirklich versteht – und dauerhaft damit arbeiten kann.</p></div>
+          <div class="card-subtle p-8"><div class="icon-box mb-4"><i data-lucide="trending-up" style="width:1.5rem;height:1.5rem;color:var(--brand-cyan);"></i></div><h3 class="text-lg font-semibold mb-3">Spürbare Entlastung</h3><p class="text-muted leading-relaxed">Kunden berichten von 4 Stunden Entlastung pro Woche pro Mitarbeitendem.</p></div>
         </div>
         <div class="text-center mt-12"><a href="#erstgespraech" class="btn-primary btn-lg">Kostenloses Erstgespräch <i data-lucide="arrow-right" style="width:1.25rem;height:1.25rem;"></i></a></div>
       </div>
@@ -752,9 +817,9 @@
           <p class="text-lg text-muted max-w-2xl mx-auto">In drei Schritten zum erfolgreichen KI-Einstieg</p>
         </div>
         <div class="grid grid-cols-1 md-grid-cols-3 gap-8">
-          <div class="process-step"><div class="card-elevated p-8 text-center" style="height:100%;"><div class="step-number">1</div><div class="icon-box icon-box-lg mx-auto mb-6" style="width:3.5rem;height:3.5rem;"><i data-lucide="calendar" style="width:1.75rem;height:1.75rem;color:var(--brand-cyan);"></i></div><h3 class="text-xl font-semibold mb-3">Assessment Call buchen</h3><p class="text-muted leading-relaxed">Wir klären in wenigen Minuten Ihre Situation und Ziele.</p></div></div>
-          <div class="process-step"><div class="card-elevated p-8 text-center" style="height:100%;"><div class="step-number">2</div><div class="icon-box icon-box-lg mx-auto mb-6" style="width:3.5rem;height:3.5rem;"><i data-lucide="check-circle" style="width:1.75rem;height:1.75rem;color:var(--brand-cyan);"></i></div><h3 class="text-xl font-semibold mb-3">Fit prüfen & entscheiden</h3><p class="text-muted leading-relaxed">Sie erhalten Ihren Zugang, wir richten alles ein.</p></div></div>
-          <div class="process-step"><div class="card-elevated p-8 text-center" style="height:100%;"><div class="step-number">3</div><div class="icon-box icon-box-lg mx-auto mb-6" style="width:3.5rem;height:3.5rem;"><i data-lucide="rocket" style="width:1.75rem;height:1.75rem;color:var(--brand-cyan);"></i></div><h3 class="text-xl font-semibold mb-3">Los geht's</h3><p class="text-muted leading-relaxed">Ihr Team legt direkt mit dem KI‑Kickstart‑Programm los.</p></div></div>
+          <div class="process-step"><div class="card-elevated p-8 text-center" style="height:100%;"><div class="step-number">1</div><div class="icon-box icon-box-lg mx-auto mb-6" style="width:3.5rem;height:3.5rem;"><i data-lucide="calendar" style="width:1.75rem;height:1.75rem;color:var(--brand-cyan);"></i></div><h3 class="text-xl font-semibold mb-3">Assessment Call buchen</h3><p class="text-muted leading-relaxed">Wir klären in wenigen Minuten Ihre Situation, Ziele und ob das Programm optimal zu Ihrer Verwaltung passt.</p></div></div>
+          <div class="process-step"><div class="card-elevated p-8 text-center" style="height:100%;"><div class="step-number">2</div><div class="icon-box icon-box-lg mx-auto mb-6" style="width:3.5rem;height:3.5rem;"><i data-lucide="check-circle" style="width:1.75rem;height:1.75rem;color:var(--brand-cyan);"></i></div><h3 class="text-xl font-semibold mb-3">Fit prüfen & entscheiden</h3><p class="text-muted leading-relaxed">Sie erhalten sofort Ihren Zugang, wir richten alles ein und bereiten Ihr Team auf einen reibungslosen Start vor.</p></div></div>
+          <div class="process-step"><div class="card-elevated p-8 text-center" style="height:100%;"><div class="step-number">3</div><div class="icon-box icon-box-lg mx-auto mb-6" style="width:3.5rem;height:3.5rem;"><i data-lucide="rocket" style="width:1.75rem;height:1.75rem;color:var(--brand-cyan);"></i></div><h3 class="text-xl font-semibold mb-3">Los geht's</h3><p class="text-muted leading-relaxed">Gemeinsam wählen wir den Starttermin - und Ihr Team legt direkt mit dem KI-Kickstart-Programm los.</p></div></div>
         </div>
         <div class="text-center mt-12"><a href="#erstgespraech" class="btn-primary btn-lg">Kostenloses Erstgespräch <i data-lucide="arrow-right" style="width:1.25rem;height:1.25rem;"></i></a></div>
       </div>
@@ -790,14 +855,14 @@
               <p class="text-xl font-semibold">Victor Reisenauer</p>
               <p class="text-muted">KI-Berater</p>
             </div>
-            <div class="card-subtle p-8"><p class="text-lg text-muted leading-relaxed">Victor führt das Erstgespräch, klärt Ihre individuellen Ziele und beantwortet alle offenen Fragen. Er zeigt Ihnen, wie der KI‑Kickstart optimal zu Ihrer Verwaltung passt.</p></div>
+            <div class="card-subtle p-8"><p class="text-lg text-muted leading-relaxed">Victor führt das Erstgespräch, klärt Ihre individuellen Ziele und beantwortet alle offenen Fragen. Er zeigt Ihnen, wie der KI-Kickstart optimal zu Ihrer Verwaltung passt und welche Schritte für Sie den größten Nutzen bringen.</p></div>
           </div>
           <div class="grid grid-cols-1 md-grid-cols-2 gap-8 items-center" style="margin-top:4rem;">
-            <div class="card-subtle p-8" style="order:2;"><p class="text-lg text-muted leading-relaxed">Lukas übernimmt Ihr Onboarding, richtet Zugänge ein und führt Ihr Team Schritt für Schritt durch das gesamte Programm. Er sorgt dafür, dass alle mitkommen.</p></div>
+            <div class="card-subtle p-8" style="order:2;"><p class="text-lg text-muted leading-relaxed">Lukas übernimmt Ihr Onboarding, richtet Zugänge ein und führt Ihr Team Schritt für Schritt durch das gesamte Programm. Er sorgt dafür, dass alle mitkommen, Blockaden abgebaut werden und die Inhalte sicher und praxisnah im Alltag ankommen.</p></div>
             <div class="image-placeholder" style="aspect-ratio:1/1;order:1;">
               <div style="width:6rem;height:6rem;border-radius:9999px;background:rgba(63,241,234,0.1);border:1px solid rgba(63,241,234,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;"><i data-lucide="user" style="width:3rem;height:3rem;color:var(--brand-cyan);"></i></div>
               <p class="text-xl font-semibold">Lukas Sontheimer</p>
-              <p class="text-muted">KI-Trainer</p>
+              <p class="text-muted">Ihr professioneller KI-Trainer</p>
             </div>
           </div>
         </div>
@@ -911,13 +976,87 @@
           </div>
           <div>
             <h4 style="color:var(--brand-cyan);font-weight:600;margin-bottom:1.5rem;">Rechtliches</h4>
-            <div style="display:flex;flex-direction:column;gap:1rem;"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a></div>
+            <div style="display:flex;flex-direction:column;gap:1rem;"><a href="#" onclick="openModal('impressum'); return false;">Impressum</a><a href="#" onclick="openModal('datenschutz'); return false;">Datenschutz</a></div>
           </div>
         </div>
         <div style="padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);"><p class="text-center" style="color:rgba(255,255,255,0.5);font-size:0.875rem;">© 2025 mitarbyte. Alle Rechte vorbehalten.</p></div>
       </div>
     </div>
   </footer>
+
+  <!-- IMPRESSUM MODAL -->
+  <div id="impressum-modal" class="modal-overlay" onclick="if(event.target === this) closeModal('impressum')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Impressum</h2>
+        <button class="modal-close" onclick="closeModal('impressum')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body">
+        <h3>mitarbyte GmbH</h3>
+        <p>Am Brunnenhof 9</p>
+        <p>82256 Fürstenfeldbruck</p>
+        <p>Deutschland</p>
+        
+        <h3>Handelsregister</h3>
+        <p>Handelsregister: HRB 301776</p>
+        <p>Registergericht: Amtsgericht Fürstenfeldbruck</p>
+        
+        <h3>Umsatzsteuer-ID</h3>
+        <p>Umsatzsteuer-Identifikationsnummer gem. § 27a UStG: TBA</p>
+        
+        <h3>Vertretungsberechtigter Geschäftsführer</h3>
+        <p>Victor Reisenauer</p>
+        
+        <h3>Kontakt</h3>
+        <p>E-Mail: <a href="mailto:office@mitarbyte.com">office(at)mitarbyte.com</a></p>
+        <p>Telefon: <a href="tel:+4915122878503">+49 151 2287 8503</a></p>
+        
+        <h3>Inhaltlich Verantwortlicher</h3>
+        <p>Inhaltlich Verantwortlicher gem. § 18 Abs. 2 MStV: Victor Reisenauer</p>
+        
+        <div class="modal-cta">
+          <h3>KI-gestützte Arbeitsweise in nur wenigen Wochen</h3>
+          <p>Gehen Sie den ersten Schritt und buchen Sie ein Erstgespräch.</p>
+          <a href="#erstgespraech" class="btn-primary" onclick="closeModal('impressum')">Erstgespräch buchen <i data-lucide="arrow-right" style="width:1.25rem;height:1.25rem;"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DATENSCHUTZ MODAL -->
+  <div id="datenschutz-modal" class="modal-overlay" onclick="if(event.target === this) closeModal('datenschutz')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Datenschutzerklärung</h2>
+        <button class="modal-close" onclick="closeModal('datenschutz')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body">
+        <h3>1. Datenschutz auf einen Blick</h3>
+        <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen.</p>
+        
+        <h3>2. Verantwortliche Stelle</h3>
+        <p>mitarbyte GmbH</p>
+        <p>Am Brunnenhof 9</p>
+        <p>82256 Fürstenfeldbruck</p>
+        <p>E-Mail: <a href="mailto:office@mitarbyte.com">office(at)mitarbyte.com</a></p>
+        
+        <h3>3. Datenerfassung auf dieser Website</h3>
+        <p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Die erhobenen Daten werden für die Terminbuchung und Kontaktaufnahme verwendet.</p>
+        
+        <h3>4. Ihre Rechte</h3>
+        <p>Sie haben jederzeit das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten.</p>
+        
+        <h3>5. Kontakt</h3>
+        <p>Bei Fragen zum Datenschutz wenden Sie sich bitte an: <a href="mailto:office@mitarbyte.com">office(at)mitarbyte.com</a></p>
+        
+        <div class="modal-cta">
+          <h3>KI-gestützte Arbeitsweise in nur wenigen Wochen</h3>
+          <p>Gehen Sie den ersten Schritt und buchen Sie ein Erstgespräch.</p>
+          <a href="#erstgespraech" class="btn-primary" onclick="closeModal('datenschutz')">Erstgespräch buchen <i data-lucide="arrow-right" style="width:1.25rem;height:1.25rem;"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script>
     lucide.createIcons();
@@ -943,6 +1082,27 @@
       
       lucide.createIcons();
     }
+    
+    function openModal(modalName) {
+      document.getElementById(modalName + '-modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lucide.createIcons();
+    }
+    
+    function closeModal(modalName) {
+      document.getElementById(modalName + '-modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.open').forEach(modal => {
+          modal.classList.remove('open');
+        });
+        document.body.style.overflow = '';
+      }
+    });
   </script>
 </body>
 </html>
