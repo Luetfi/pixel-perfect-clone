@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <title>Impressum - mitarbyte</title>
   <meta name="description" content="Impressum der mitarbyte GmbH - KI-Kickstart für Hausverwaltungen">
   
@@ -29,12 +30,16 @@
       --brand-cyan: #3ff1ea;
     }
     
-    html { scroll-behavior: smooth; }
+    html {
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
     
-    html, body {
+    body {
       width: 100%;
       max-width: 100%;
       overflow-x: hidden;
+      overflow-y: auto;
     }
     
     body {
@@ -49,20 +54,12 @@
     
     main, footer {
       width: 100vw;
-      position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
+      margin-left: calc(-50vw + 50%);
     }
     
     header.header {
       width: 100vw;
-      position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
+      margin-left: calc(-50vw + 50%);
     }
     
     h1, h2, h3, h4, h5, h6 {
@@ -137,10 +134,13 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background-color: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(12px);
+      background-color: rgba(255, 255, 255, 0.95);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
       border-bottom: 1px solid rgba(226, 232, 240, 0.5);
       width: 100%;
+      will-change: transform;
+      transform: translateZ(0);
     }
     .header nav {
       display: flex;
@@ -289,8 +289,8 @@
     
     html, body { margin-bottom: 0 !important; padding-bottom: 0 !important; }
     footer.footer { 
-      margin-bottom: -100px; 
-      padding-bottom: 100px !important; 
+      margin-bottom: 0; 
+      padding-bottom: 2rem !important; 
     }
   </style>
 </head>
@@ -299,28 +299,34 @@
   <header class="header">
     <nav>
       <div class="desktop-only w-full items-center justify-between" style="align-items:center;">
-        <a href="/gohighlevel-export.html" style="display:flex;align-items:center;">
-          <!-- LOGO: Ersetzen Sie die URL mit Ihrem hochgeladenen Logo -->
-          <img src="https://storage.googleapis.com/msgsndr/ZaSffp0AiybiPIhT5szY/media/6966645b4d514862d66fab07.png" alt="mitarbyte - Mitarbeit von morgen" style="height:4rem;width:auto;">
-        </a>
+        <div style="display:flex;align-items:center;gap:1.5rem;">
+          <a href="https://kickstart-ivd.mitarbyte.com/ivd-1" style="display:flex;align-items:center;">
+            <!-- LOGO: Ersetzen Sie die URL mit Ihrem hochgeladenen Logo -->
+            <img src="https://storage.googleapis.com/msgsndr/ZaSffp0AiybiPIhT5szY/media/6966645b4d514862d66fab07.png" alt="mitarbyte - Mitarbeit von morgen" style="height:4rem;width:auto;">
+          </a>
+          <img src="https://storage.googleapis.com/msgsndr/ZaSffp0AiybiPIhT5szY/media/696e66ae156e0a5189de458d.svg" alt="IVD" style="height:1.75rem;width:auto;">
+        </div>
         <div class="flex items-center gap-6" style="align-items:center;">
           <a href="tel:+4915122878503" class="phone-link" style="align-items:center;font-size:1rem;">
             <div class="phone-icon" style="width:2.5rem;height:2.5rem;"><i data-lucide="phone" style="width:1.25rem;height:1.25rem;"></i></div>
             +49 1512 2878503
           </a>
-          <a href="/gohighlevel-export.html#erstgespraech" class="btn-primary" style="display:inline-flex;align-items:center;padding:0.875rem 1.75rem;font-size:1rem;">Erstgespräch buchen</a>
+          <a href="https://kickstart-ivd.mitarbyte.com/ivd-1#erstgespraech" class="btn-primary" style="display:inline-flex;align-items:center;padding:0.875rem 1.75rem;font-size:1rem;">Erstgespräch buchen</a>
         </div>
       </div>
       <div class="mobile-only w-full items-center justify-between" style="align-items:center;">
-        <a href="/gohighlevel-export.html" style="display:flex;align-items:center;">
-          <!-- LOGO Mobile: Ersetzen Sie die URL mit Ihrem hochgeladenen Logo -->
-          <img src="https://storage.googleapis.com/msgsndr/ZaSffp0AiybiPIhT5szY/media/6966645b4d514862d66fab07.png" alt="mitarbyte" style="height:2.75rem;width:auto;">
-        </a>
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <a href="https://kickstart-ivd.mitarbyte.com/ivd-1" style="display:flex;align-items:center;">
+            <!-- LOGO Mobile: Ersetzen Sie die URL mit Ihrem hochgeladenen Logo -->
+            <img src="https://storage.googleapis.com/msgsndr/ZaSffp0AiybiPIhT5szY/media/6966645b4d514862d66fab07.png" alt="mitarbyte" style="height:2.75rem;width:auto;">
+          </a>
+          <img src="https://storage.googleapis.com/msgsndr/ZaSffp0AiybiPIhT5szY/media/696e66ae156e0a5189de458d.svg" alt="IVD" style="height:0.7rem;width:auto;">
+        </div>
         <div class="flex items-center gap-3" style="align-items:center;">
           <a href="tel:+4915122878503" class="phone-icon" style="width:2.75rem;height:2.75rem;background:var(--muted);display:flex;align-items:center;justify-content:center;">
             <i data-lucide="phone" style="width:1.5rem;height:1.5rem;"></i>
           </a>
-          <a href="/gohighlevel-export.html#erstgespraech" class="btn-primary" style="display:inline-flex;align-items:center;padding:0.75rem 1.25rem;font-size:0.9375rem;">Erstgespräch</a>
+          <a href="https://kickstart-ivd.mitarbyte.com/ivd-1#erstgespraech" class="btn-primary" style="display:inline-flex;align-items:center;padding:0.75rem 1.25rem;font-size:0.9375rem;">Erstgespräch</a>
         </div>
       </div>
     </nav>
@@ -363,18 +369,6 @@
         <h2>Inhaltlich Verantwortlicher</h2>
         <p>Inhaltlich Verantwortlicher gem. § 18 Abs. 2 MStV: Victor Reisenauer</p>
       </div>
-      
-      <!-- CTA Section -->
-      <div class="cta-section">
-        <div class="decorative top-right"></div>
-        <div class="decorative bottom-left"></div>
-        <h2>KI-gestützte Arbeitsweise in nur wenigen Wochen</h2>
-        <p>Gehen Sie den ersten Schritt und buchen Sie ein Erstgespräch.</p>
-        <a href="/gohighlevel-export.html#erstgespraech" class="btn-primary btn-lg">
-          Erstgespräch buchen
-          <i data-lucide="arrow-right" style="width:1.25rem;height:1.25rem;"></i>
-        </a>
-      </div>
     </div>
   </main>
 
@@ -382,9 +376,9 @@
   <footer class="footer">
     <div class="section-padding" style="padding-bottom:1.5rem;">
       <div class="container-wide">
-        <div class="grid mb-8 footer-grid" style="gap:3rem;grid-template-columns:2fr 1fr 1fr;">
+        <div class="grid mb-8 footer-grid">
           <div>
-            <a href="/gohighlevel-export.html" style="display:inline-block;margin-bottom:1.5rem;">
+            <a href="https://kickstart-ivd.mitarbyte.com/ivd-1" style="display:inline-block;margin-bottom:1.5rem;">
               <img src="https://storage.googleapis.com/msgsndr/ZaSffp0AiybiPIhT5szY/media/6966645b4d514862d66fab07.png" alt="mitarbyte - Mitarbeit von morgen" style="height:2.5rem;width:auto;filter:brightness(0) invert(1);">
             </a>
             <p style="color:rgba(255,255,255,0.7);line-height:1.625;max-width:28rem;">Mitarbeit von morgen – Wir machen Ihr Team fit für die KI-Zukunft. Praxisnah, begleitet und auf Ihre Bedürfnisse zugeschnitten.</p>
@@ -399,7 +393,7 @@
           </div>
           <div>
             <h4 style="color:var(--brand-cyan);font-weight:600;margin-bottom:1.5rem;">Rechtliches</h4>
-            <div style="display:flex;flex-direction:column;gap:1rem;"><a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a></div>
+            <div style="display:flex;flex-direction:column;gap:1rem;"><a href="/impressum-seite">Impressum</a><a href="/datenschutz-seite">Datenschutz</a></div>
           </div>
         </div>
         <div style="padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);"><p class="text-center" style="color:rgba(255,255,255,0.5);font-size:0.875rem;">© 2025 mitarbyte. Alle Rechte vorbehalten.</p></div>
